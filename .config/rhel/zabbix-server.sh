@@ -18,6 +18,11 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix server e mariadb server" 0 0
         exit
 fi
+yum install zabbix-server-mysql zabbix-web-mysql mariadb-server -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (3/8)..." 0 0
+if (( $? != 0 )); then
+        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix server e mariadb server 2" 0 0
+        exit
+fi
 systemctl enable mariadb && systemctl start mariadb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (4/8)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - habilitação do mariadb" 0 0
@@ -127,7 +132,7 @@ srv
 function srv(){
 echo "LogFile=/var/log/zabbix/zabbix_server.log" > /etc/zabbix/zabbix_server.conf
 echo "PidFile=/var/run/zabbix/zabbix_server.pid" >> /etc/zabbix/zabbix_server.conf
-echo "SocketDit=/var/run/zabbix" >> /etc/zabbix/zabbix_server.conf
+echo "SocketDir=/var/run/zabbix" >> /etc/zabbix/zabbix_server.conf
 echo "DBName=$namedb" >> /etc/zabbix/zabbix_server.conf
 echo "DBUser=$userdb" >> /etc/zabbix/zabbix_server.conf
 echo "DBPassword=$passdb" >> /etc/zabbix/zabbix_server.conf
