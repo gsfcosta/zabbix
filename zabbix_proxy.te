@@ -1,0 +1,13 @@
+module zabbix_proxy 1.0;
+require {
+        type zabbix_t;
+        type zabbix_port_t;
+        class process setrlimit;
+        class tcp_socket name_connect;
+}
+ 
+#============= zabbix_t ==============
+allow zabbix_t self:process setrlimit;
+ 
+#!!!! This avc is allowed in the current policy
+allow zabbix_t zabbix_port_t:tcp_socket name_connect;

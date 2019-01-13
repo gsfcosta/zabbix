@@ -149,25 +149,8 @@ echo "LogFile=/var/log/zabbix/zabbix_proxy.log" >> /etc/zabbix/zabbix_proxy.conf
 
 iptables -F
 
-echo "[Unit]" > /usr/lib/systemd/system/zabbix-proxy.service
-echo "Description=Zabbix Proxy" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "After=syslog.target" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "After=network.target" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo " " >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "[Service]" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "Environment='CONFFILE=/etc/zabbix/zabbix_proxy.conf'" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "EnvironmentFile=-/etc/sysconfig/zabbix-proxy" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "Type=forking" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "Restart=on-failure" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "PIDFile=/tmp/zabbix_proxy.pid" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "KillMode=control-group" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "ExecStart=/usr/sbin/zabbix_proxy -c /etc/zabbix/zabbix_proxy.conf" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "ExecStop=/bin/kill -SIGTERM $MAINPID" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "RestartSec=10s" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "TimeoutSec=0" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo " " >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "[Install]" >> /usr/lib/systemd/system/zabbix-proxy.service
-echo "WantedBy=multi-user.target" >> /usr/lib/systemd/system/zabbix-proxy.service
+rm -rf /usr/lib/systemd/system/zabbix-proxy.service
+cp /zabbix/.config/rhel/zabbix-proxy.service /usr/lib/systemd/system/zabbix-proxy.service
 
 systemctl enable zabbix-proxy | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (13/23)..." 0 0
 systemctl start zabbix-proxy | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (14/23)..." 0 0

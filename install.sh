@@ -94,7 +94,7 @@ opcao=$(dialog  --stdout                                        \
 if (( $? == 0 )); then
         case $opcao in
                 1) versionzbxs6 ;;
-                2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64.rpm/rpmforge/RPMS/fping-3.9-1.el6.rf.x86_64.rpm.rpm" > /tmp/fpinglink.txt; echo "fping-3.9-1.el6.rf.x86_64.rpm.rpm" > /tmp/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64.rpm/Packages/libevent-1.4.13-4.el6.x86_64.rpm.rpm" > /tmp/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64.rpm/Packages/unixODBC-2.2.14-14.el6.x86_64.rpm.rpm" > /tmp/unixodbcrpm.txt; versionzbxp6 ;;
+                2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64/rpmforge/RPMS/fping-3.9-1.el6.rf.x86_64.rpm" > /tmp/fpinglink.txt; echo "fping-3.9-1.el6.rf.x86_64.rpm" > /tmp/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/libevent-1.4.13-4.el6.x86_64.rpm" > /tmp/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/unixODBC-2.2.14-14.el6.x86_64.rpm" > /tmp/unixodbcrpm.txt; versionzbxp6 ;;
                 3) versionzbxa6 ;;
                 4) exit ;;
         esac
@@ -118,7 +118,7 @@ opcao=$(dialog  --stdout                                        \
 if (( $? == 0 )); then
         case $opcao in
                 1) versionzbxs7 ;;
-                2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el7/en/x86_64.rpm/rpmforge/RPMS/fping-3.10-1.el7.rf.x86_64.rpm.rpm" > /tmp/fpinglink.txt; echo "fping-3.10-1.el7.rf.x86_64.rpm.rpm" > /tmp/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64.rpm/Packages/libevent-2.0.21-4.el7.x86_64.rpm.rpm" > /tmp/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64.rpm/Packages/unixODBC-2.3.1-11.el7.x86_64.rpm.rpm" > /tmp/unixodbcrpm.txt; versionzbxp7 ;;
+                2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el7/en/x86_64/rpmforge/RPMS/fping-3.10-1.el7.rf.x86_64.rpm" > /tmp/fpinglink.txt; echo "fping-3.10-1.el7.rf.x86_64" > /tmp/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/libevent-2.0.21-4.el7.x86_64.rpm" > /tmp/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/unixODBC-2.3.1-11.el7.x86_64.rpm" > /tmp/unixodbcrpm.txt; versionzbxp7 ;;
                 3) versionzbxa7 ;;
                 4) exit ;;
         esac
@@ -167,7 +167,7 @@ if (( $? == 0 )); then
         case $opcao in
                 1) echo "3.0" > /tmp/versionprimary.txt; versiona630 ;;
                 2) echo "3.4" > /tmp/versionprimary.txt; versiona634 ;;
-                3) echo "4.0" > /tmp/versionprimary.txt; versiona64.rpm0 ;;
+                3) echo "4.0" > /tmp/versionprimary.txt; versiona640 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -287,7 +287,7 @@ if (( $? == 0 )); then
         case $opcao in
                 1) echo "3.0" > /tmp/versionprimary.txt; versionp630 ;;
                 2) echo "3.4" > /tmp/versionprimary.txt; versionp634 ;;
-                3) echo "4.0" > /tmp/versionprimary.txt; versionp64.rpm0 ;;
+                3) echo "4.0" > /tmp/versionprimary.txt; versionp640 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -469,7 +469,7 @@ else
         exit
 fi
 }
-function versions64.rpm0(){
+function versions640(){
 opcao=$(dialog  --stdout                                        \
         --backtitle "LRS Tecnologia LTDA"               \
         --ok-label Selecionar                           \
@@ -1183,7 +1183,7 @@ else
         exit
 fi
 }
-function versiona64.rpm0(){
+function versiona640(){
 opcao=$(dialog  --stdout                                        \
         --backtitle "LRS Tecnologia LTDA"               \
         --ok-label Selecionar                           \
