@@ -1,7 +1,7 @@
 #!/bin/bash
-vso=$(cat /tmp/versionso.txt)
-vprimary=$(cat /tmp/versionprimary.txt)
-vzbx=$(cat /tmp/versionzbx.txt)
+vso=$(cat /zabbix/.config/var/versionso.txt)
+vprimary=$(cat /zabbix/.config/var/versionprimary.txt)
+vzbx=$(cat /zabbix/.config/var/versionzbx.txt)
 
 yum install net-snmp -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (1/8)..." 0 0
 if (( $? != 0 )); then
