@@ -1,7 +1,7 @@
 #!/bin/bash
-vso=$(cat /tmp/versionso.txt)
-vzbx=$(cat /tmp/versionzbx.txt)
-vprimary=$(cat /tmp/versionprimary.txt)
+vso=$(cat /zabbix/.config/var/versionso.txt)
+vzbx=$(cat /zabbix/.config/var/versionzbx.txt)
+vprimary=$(cat /zabbix/.config/var/versionprimary.txt)
 rpm -Uvh http://repo.zabbix.com/zabbix/$vprimary/rhel/$vso/x86_64/zabbix-agent-$vzbx | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (1/4)..." 0 0
 if (( $? != )); then
 	dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Download do repositório" 0 0	
