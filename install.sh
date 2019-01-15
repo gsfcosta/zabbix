@@ -46,9 +46,9 @@ opcao=$(dialog  --stdout                                        \
         5 "Sair" )
 if (( $? == 0 )); then
 	case $opcao in
-	        1) echo "5" > /tmp/versionso.txt; zbx5;;
-	        2) echo "6" > /tmp/versionso.txt; zbx6;;
-	        3) echo "7" > /tmp/versionso.txt; zbx7;;
+	        1) echo "5" > /zabbix/.config/var/versionso.txt; zbx5;;
+	        2) echo "6" > /zabbix/.config/var/versionso.txt; zbx6;;
+	        3) echo "7" > /zabbix/.config/var/versionso.txt; zbx7;;
 	        4) helpversion ;;
        		5) exit ;;
 	esac
@@ -94,7 +94,7 @@ opcao=$(dialog  --stdout                                        \
 if (( $? == 0 )); then
         case $opcao in
                 1) versionzbxs6 ;;
-                2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64/rpmforge/RPMS/fping-3.9-1.el6.rf.x86_64.rpm" > /tmp/fpinglink.txt; echo "fping-3.9-1.el6.rf.x86_64.rpm" > /tmp/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/libevent-1.4.13-4.el6.x86_64.rpm" > /tmp/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/unixODBC-2.2.14-14.el6.x86_64.rpm" > /tmp/unixodbcrpm.txt; versionzbxp6 ;;
+                2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64/rpmforge/RPMS/fping-3.9-1.el6.rf.x86_64.rpm" > /zabbix/.config/var/fpinglink.txt; echo "fping-3.9-1.el6.rf.x86_64.rpm" > /zabbix/.config/var/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/libevent-1.4.13-4.el6.x86_64.rpm" > /zabbix/.config/var/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/unixODBC-2.2.14-14.el6.x86_64.rpm" > /zabbix/.config/var/unixodbcrpm.txt; versionzbxp6 ;;
                 3) versionzbxa6 ;;
                 4) exit ;;
         esac
@@ -118,7 +118,7 @@ opcao=$(dialog  --stdout                                        \
 if (( $? == 0 )); then
         case $opcao in
                 1) versionzbxs7 ;;
-                2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el7/en/x86_64/rpmforge/RPMS/fping-3.10-1.el7.rf.x86_64.rpm" > /tmp/fpinglink.txt; echo "fping-3.10-1.el7.rf.x86_64" > /tmp/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/libevent-2.0.21-4.el7.x86_64.rpm" > /tmp/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/unixODBC-2.3.1-11.el7.x86_64.rpm" > /tmp/unixodbcrpm.txt; versionzbxp7 ;;
+                2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el7/en/x86_64/rpmforge/RPMS/fping-3.10-1.el7.rf.x86_64.rpm" > /zabbix/.config/var/fpinglink.txt; echo "fping-3.10-1.el7.rf.x86_64" > /zabbix/.config/var/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/libevent-2.0.21-4.el7.x86_64.rpm" > /zabbix/.config/var/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/unixODBC-2.3.1-11.el7.x86_64.rpm" > /zabbix/.config/var/unixodbcrpm.txt; versionzbxp7 ;;
                 3) versionzbxa7 ;;
                 4) exit ;;
         esac
@@ -141,9 +141,9 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair." )
 if (( $? == 0 )); then
 	case $opcao in
-        	1) echo "3.0" > /tmp/versionprimary.txt; versiona530 ;;
-       		2) echo "3.4" > /tmp/versionprimary.txt; versiona534 ;;
-        	3) echo "4.0" > /tmp/versionprimary.txt; versiona540 ;;
+        	1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versiona530 ;;
+       		2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versiona534 ;;
+        	3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versiona540 ;;
 		4) exit ;;
 	esac
 elif (( $? == 1 )); then
@@ -165,9 +165,9 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair." )
 if (( $? == 0 )); then
         case $opcao in
-                1) echo "3.0" > /tmp/versionprimary.txt; versiona630 ;;
-                2) echo "3.4" > /tmp/versionprimary.txt; versiona634 ;;
-                3) echo "4.0" > /tmp/versionprimary.txt; versiona640 ;;
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versiona630 ;;
+                2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versiona634 ;;
+                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versiona640 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -189,9 +189,9 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair." )      
 if (( $? == 0 )); then
         case $opcao in
-                1) echo "3.0" > /tmp/versionprimary.txt; versiona730 ;;
-                2) echo "3.4" > /tmp/versionprimary.txt; versiona734 ;;
-                3) echo "4.0" > /tmp/versionprimary.txt; versiona740 ;;
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versiona730 ;;
+                2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versiona734 ;;
+                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versiona740 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -213,9 +213,9 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair." )
 if (( $? == 0 )); then
         case $opcao in
-                1) echo "3.0" > /tmp/versionprimary.txt; versions530 ;;
-                2) echo "3.4" > /tmp/versionprimary.txt; versions534 ;;
-                3) echo "4.0" > /tmp/versionprimary.txt; versions540 ;;
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versions530 ;;
+                2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versions534 ;;
+                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versions540 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -237,9 +237,9 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair." )
 if (( $? == 0 )); then
         case $opcao in
-                1) echo "3.0" > /tmp/versionprimary.txt; versions630 ;;
-                2) echo "3.4" > /tmp/versionprimary.txt; versions634 ;;
-                3) echo "4.0" > /tmp/versionprimary.txt; versions64.rpm0 ;;
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versions630 ;;
+                2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versions634 ;;
+                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versions64.rpm0 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -261,9 +261,9 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair." )
 if (( $? == 0 )); then
         case $opcao in
-                1) echo "3.0" > /tmp/versionprimary.txt; versions730 ;;
-                2) echo "3.4" > /tmp/versionprimary.txt; versions734 ;;
-                3) echo "4.0" > /tmp/versionprimary.txt; versions740 ;;
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versions730 ;;
+                2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versions734 ;;
+                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versions740 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -285,9 +285,9 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair." )
 if (( $? == 0 )); then
         case $opcao in
-                1) echo "3.0" > /tmp/versionprimary.txt; versionp630 ;;
-                2) echo "3.4" > /tmp/versionprimary.txt; versionp634 ;;
-                3) echo "4.0" > /tmp/versionprimary.txt; versionp640 ;;
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versionp630 ;;
+                2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versionp634 ;;
+                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versionp640 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -309,9 +309,9 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair." )
 if (( $? == 0 )); then
         case $opcao in
-                1) echo "3.0" > /tmp/versionprimary.txt; versionp730 ;;
-                2) echo "3.4" > /tmp/versionprimary.txt; versionp734 ;;
-                3) echo "4.0" > /tmp/versionprimary.txt; versionp740 ;;
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versionp730 ;;
+                2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versionp734 ;;
+                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versionp740 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -331,7 +331,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0-1.el5.noarch.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.0-1.el5.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         2) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-server.sh
@@ -352,7 +352,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0-1.el6.noarch.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         2) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-server.sh
@@ -373,7 +373,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0-1.el7.noarch.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         2) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-server.sh
@@ -394,7 +394,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4-1.noarch.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.4-1.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         2) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-server.sh
@@ -415,7 +415,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4-1.el6.noarch.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.4-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         2) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-server.sh
@@ -437,8 +437,8 @@ opcao=$(dialog  --stdout                                        \
         3 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4-1.el7.centos.noarch.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.4-2.el7.noarch.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.4-1.el7.centos.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.4-2.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         3) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-server.sh
@@ -459,7 +459,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0-1.el5.noarch.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "4.0-1.el5.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         2) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-server.sh
@@ -480,7 +480,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0-1.el6.noarch.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "4.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         2) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-server.sh
@@ -501,7 +501,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0-1.el7.noarch.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "4.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         2) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-server.sh
@@ -548,33 +548,33 @@ opcao=$(dialog  --stdout                                        \
         28 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0.0-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.0.1-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "3.0.1-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "3.0.10-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        5) echo "3.0.11-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        6) echo "3.0.12-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                       	7) echo "3.0.13-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        8) echo "3.0.13-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        9) echo "3.0.14-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        10) echo "3.0.15-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        11) echo "3.0.16-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        12) echo "3.0.17-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        13) echo "3.0.18-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        14) echo "3.0.19-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        15) echo "3.0.2-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        16) echo "3.0.20-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        17) echo "3.0.21-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        18) echo "3.0.22-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        19) echo "3.0.23-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        20) echo "3.0.24-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        21) echo "3.0.3-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        22) echo "3.0.4-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        23) echo "3.0.5-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        24) echo "3.0.6-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        25) echo "3.0.7-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        26) echo "3.0.8-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        27) echo "3.0.9-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.0.0-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.0.1-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "3.0.1-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "3.0.10-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        5) echo "3.0.11-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        6) echo "3.0.12-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                       	7) echo "3.0.13-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        8) echo "3.0.13-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        9) echo "3.0.14-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        10) echo "3.0.15-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        11) echo "3.0.16-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        12) echo "3.0.17-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        13) echo "3.0.18-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        14) echo "3.0.19-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        15) echo "3.0.2-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        16) echo "3.0.20-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        17) echo "3.0.21-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        18) echo "3.0.22-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        19) echo "3.0.23-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        20) echo "3.0.24-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        21) echo "3.0.3-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        22) echo "3.0.4-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        23) echo "3.0.5-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        24) echo "3.0.6-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        25) echo "3.0.7-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        26) echo "3.0.8-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        27) echo "3.0.9-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         28) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-proxy.sh
@@ -621,33 +621,33 @@ opcao=$(dialog  --stdout                                        \
         28 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0.0-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.0.1-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "3.0.10-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "3.0.11-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        5) echo "3.0.12-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                       	6) echo "3.0.13-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        7) echo "3.0.13-2.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        8) echo "3.0.14-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        9) echo "3.0.15-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        10) echo "3.0.16-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        11) echo "3.0.17-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        12) echo "3.0.18-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        13) echo "3.0.19-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        14) echo "3.0.2-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        15) echo "3.0.20-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        16) echo "3.0.21-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        17) echo "3.0.22-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        18) echo "3.0.23-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        19) echo "3.0.24-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        20) echo "3.0.3-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        21) echo "3.0.4-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        22) echo "3.0.5-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        23) echo "3.0.6-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        24) echo "3.0.7-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        25) echo "3.0.8-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        26) echo "3.0.8-2.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        27) echo "3.0.9-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.0.0-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.0.1-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "3.0.10-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "3.0.11-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        5) echo "3.0.12-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                       	6) echo "3.0.13-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        7) echo "3.0.13-2.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        8) echo "3.0.14-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        9) echo "3.0.15-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        10) echo "3.0.16-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        11) echo "3.0.17-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        12) echo "3.0.18-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        13) echo "3.0.19-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        14) echo "3.0.2-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        15) echo "3.0.20-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        16) echo "3.0.21-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        17) echo "3.0.22-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        18) echo "3.0.23-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        19) echo "3.0.24-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        20) echo "3.0.3-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        21) echo "3.0.4-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        22) echo "3.0.5-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        23) echo "3.0.6-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        24) echo "3.0.7-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        25) echo "3.0.8-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        26) echo "3.0.8-2.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        27) echo "3.0.9-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         28) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-proxy.sh
@@ -684,23 +684,23 @@ opcao=$(dialog  --stdout                                        \
 	18 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4.0-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.4.1-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "3.4.10-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "3.4.11-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        5) echo "3.4.12-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        6) echo "3.4.13-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        7) echo "3.4.14-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        8) echo "3.4.15-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        9) echo "3.4.2-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        10) echo "3.4.3-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        11) echo "3.4.4-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        12) echo "3.4.4-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        13) echo "3.4.5-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        14) echo "3.4.6-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        15) echo "3.4.7-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        16) echo "3.4.8-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        17) echo "3.4.9-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.4.0-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.4.1-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "3.4.10-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "3.4.11-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        5) echo "3.4.12-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        6) echo "3.4.13-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        7) echo "3.4.14-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        8) echo "3.4.15-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        9) echo "3.4.2-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        10) echo "3.4.3-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        11) echo "3.4.4-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        12) echo "3.4.4-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        13) echo "3.4.5-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        14) echo "3.4.6-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        15) echo "3.4.7-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        16) echo "3.4.8-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        17) echo "3.4.9-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         18) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-proxy.sh
@@ -738,24 +738,24 @@ opcao=$(dialog  --stdout                                        \
         19 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4.0-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.4.1-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "3.4.10-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "3.4.11-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        5) echo "3.4.12-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        6) echo "3.4.13-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        7) echo "3.4.14-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        8) echo "3.4.15-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        9) echo "3.4.2-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        10) echo "3.4.3-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        11) echo "3.4.4-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        12) echo "3.4.4-2.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        13) echo "3.4.5-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        14) echo "3.4.6-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        15) echo "3.4.7-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        16) echo "3.4.8-0.0.1r80210.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        17) echo "3.4.8-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        18) echo "3.4.9-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.4.0-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.4.1-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "3.4.10-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "3.4.11-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        5) echo "3.4.12-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        6) echo "3.4.13-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        7) echo "3.4.14-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        8) echo "3.4.15-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        9) echo "3.4.2-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        10) echo "3.4.3-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        11) echo "3.4.4-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        12) echo "3.4.4-2.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        13) echo "3.4.5-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        14) echo "3.4.6-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        15) echo "3.4.7-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        16) echo "3.4.8-0.0.1r80210.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        17) echo "3.4.8-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        18) echo "3.4.9-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         19) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-proxy.sh
@@ -779,10 +779,10 @@ opcao=$(dialog  --stdout                                        \
         5 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0.0-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "4.0.1-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "4.0.2-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "4.0.3-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "4.0.0-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "4.0.1-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "4.0.2-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "4.0.3-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         5) exit;;	
         esac
         bash /zabbix/.config/rhel/zabbix-proxy.sh
@@ -806,10 +806,10 @@ opcao=$(dialog  --stdout                                        \
         5 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0.0-2.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "4.0.1-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "4.0.2-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "4.0.3-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "4.0.0-2.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "4.0.1-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "4.0.2-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "4.0.3-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         5) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-proxy.sh
@@ -830,32 +830,32 @@ opcao=$(dialog --stdout                                        \
 	2 "3.0.1-2.el5.x86_64.rpm" 3 "3.0.10-1.el5.x86_64.rpm" 4 "3.0.11-1.el5.x86_64.rpm" 5 "3.0.12-1.el5.x86_64.rpm" 6 "3.0.13-1.el5.x86_64.rpm" 7 "3.0.13-2.el5.x86_64.rpm" 8 "3.0.14-1.el5.x86_64.rpm" 9 "3.0.15-1.el5.x86_64.rpm" 10 "3.0.16-1.el5.x86_64.rpm" 11 "3.0.17-1.el5.x86_64.rpm" 12 "3.0.18-1.el5.x86_64.rpm" 13 "3.0.19-1.el5.x86_64.rpm" 14 "3.0.2-1.el5.x86_64.rpm" 15 "3.0.20-1.el5.x86_64.rpm" 16 "3.0.21-1.el5.x86_64.rpm" 17 "3.0.22-1.el5.x86_64.rpm" 18 "3.0.23-1.el5.x86_64.rpm" 19 "3.0.24-1.el5.x86_64.rpm" 20 "3.0.3-1.el5.x86_64.rpm" 21 "3.0.4-1.el5.x86_64.rpm" 22 "3.0.5-1.el5.x86_64.rpm" 23 "3.0.6-1.el5.x86_64.rpm" 24 "3.0.7-1.el5.x86_64.rpm" 25 "3.0.8-1.el5.x86_64.rpm"	26 "3.0.9-1.el5.x86_64.rpm" 27 "Sair")
 if (( $? == 0 )); then
         case $opcao in      
-			1) echo "3.0.0-2.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			2) echo "3.0.1-2.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			3) echo "3.0.10-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			4) echo "3.0.11-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			5) echo "3.0.12-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;; 
-			6) echo "3.0.13-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			7) echo "3.0.13-2.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			8) echo "3.0.14-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			9) echo "3.0.15-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			10) echo "3.0.16-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;        
-			11) echo "3.0.17-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			12) echo "3.0.18-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			13) echo "3.0.19-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			14) echo "3.0.2-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			15) echo "3.0.20-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			16) echo "3.0.21-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			17) echo "3.0.22-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			18) echo "3.0.23-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			19) echo "3.0.24-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			20) echo "3.0.3-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			21) echo "3.0.4-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			22) echo "3.0.5-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			23) echo "3.0.6-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			24) echo "3.0.7-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			25) echo "3.0.8-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-			26) echo "3.0.9-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
+			1) echo "3.0.0-2.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			2) echo "3.0.1-2.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			3) echo "3.0.10-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			4) echo "3.0.11-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			5) echo "3.0.12-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;; 
+			6) echo "3.0.13-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			7) echo "3.0.13-2.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			8) echo "3.0.14-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			9) echo "3.0.15-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			10) echo "3.0.16-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;        
+			11) echo "3.0.17-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			12) echo "3.0.18-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			13) echo "3.0.19-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			14) echo "3.0.2-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			15) echo "3.0.20-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			16) echo "3.0.21-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			17) echo "3.0.22-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			18) echo "3.0.23-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			19) echo "3.0.24-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			20) echo "3.0.3-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			21) echo "3.0.4-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			22) echo "3.0.5-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			23) echo "3.0.6-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			24) echo "3.0.7-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			25) echo "3.0.8-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+			26) echo "3.0.9-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
 			27) exit;;
         esac
 	bash /zabbix/.config/rhel/zabbix-agent.sh
@@ -902,33 +902,33 @@ opcao=$(dialog --stdout                                        \
         28 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0.0-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.0.1-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "3.0.1-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "3.0.10-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        5) echo "3.0.11-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        6) echo "3.0.12-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                       	7) echo "3.0.13-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        8) echo "3.0.13-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        9) echo "3.0.14-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        10) echo "3.0.15-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        11) echo "3.0.16-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        12) echo "3.0.17-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        13) echo "3.0.18-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        14) echo "3.0.19-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        15) echo "3.0.2-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        16) echo "3.0.20-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        17) echo "3.0.21-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        18) echo "3.0.22-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        19) echo "3.0.23-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        20) echo "3.0.24-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        21) echo "3.0.3-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        22) echo "3.0.4-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        23) echo "3.0.5-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        24) echo "3.0.6-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        25) echo "3.0.7-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        26) echo "3.0.8-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        27) echo "3.0.9-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.0.0-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.0.1-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "3.0.1-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "3.0.10-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        5) echo "3.0.11-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        6) echo "3.0.12-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                       	7) echo "3.0.13-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        8) echo "3.0.13-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        9) echo "3.0.14-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        10) echo "3.0.15-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        11) echo "3.0.16-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        12) echo "3.0.17-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        13) echo "3.0.18-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        14) echo "3.0.19-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        15) echo "3.0.2-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        16) echo "3.0.20-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        17) echo "3.0.21-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        18) echo "3.0.22-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        19) echo "3.0.23-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        20) echo "3.0.24-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        21) echo "3.0.3-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        22) echo "3.0.4-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        23) echo "3.0.5-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        24) echo "3.0.6-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        25) echo "3.0.7-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        26) echo "3.0.8-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        27) echo "3.0.9-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         28) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-agent.sh
@@ -975,32 +975,32 @@ opcao=$(dialog  --stdout                                        \
         27 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0.0-2.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.0.1-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "3.0.10-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "3.0.11-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        5) echo "3.0.12-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        6) echo "3.0.13-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        7) echo "3.0.13-2.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        8) echo "3.0.14-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        9) echo "3.0.15-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        10) echo "3.0.16-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        11) echo "3.0.17-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        12) echo "3.0.18-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        13) echo "3.0.19-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        14) echo "3.0.2-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        15) echo "3.0.20-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        16) echo "3.0.21-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        17) echo "3.0.22-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        18) echo "3.0.23-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        19) echo "3.0.24-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        20) echo "3.0.3-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        21) echo "3.0.4-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        22) echo "3.0.5-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        23) echo "3.0.6-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        24) echo "3.0.7-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        25) echo "3.0.8-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        26) echo "3.0.9-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.0.0-2.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.0.1-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "3.0.10-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "3.0.11-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        5) echo "3.0.12-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        6) echo "3.0.13-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        7) echo "3.0.13-2.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        8) echo "3.0.14-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        9) echo "3.0.15-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        10) echo "3.0.16-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        11) echo "3.0.17-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        12) echo "3.0.18-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        13) echo "3.0.19-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        14) echo "3.0.2-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        15) echo "3.0.20-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        16) echo "3.0.21-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        17) echo "3.0.22-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        18) echo "3.0.23-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        19) echo "3.0.24-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        20) echo "3.0.3-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        21) echo "3.0.4-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        22) echo "3.0.5-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        23) echo "3.0.6-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        24) echo "3.0.7-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        25) echo "3.0.8-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        26) echo "3.0.9-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         27) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-agent.sh
@@ -1022,23 +1022,23 @@ opcao=$(dialog --stdout                                        \
         2 "3.4.1-1.el5.x86_64.rpm" 3 "3.4.10-1.el5.x86_64.rpm" 4 "3.4.11-1.el5.x86_64.rpm" 5 "3.4.12-1.el5.x86_64.rpm" 6 "3.4.13-1.el5.x86_64.rpm" 7 "3.4.14-1.el5.x86_64.rpm" 8 "3.4.15-1.el5.x86_64.rpm" 9 "3.4.2-1.el5.x86_64.rpm" 10 "3.4.3-1.el5.x86_64.rpm" 11 "3.4.4-1.el5.x86_64.rpm" 12 "3.4.4-2.el5.x86_64.rpm" 13 "3.4.5-1.el5.x86_64.rpm" 14 "3.4.6-1.el5.x86_64.rpm" 15 "3.4.7-1.el5.x86_64.rpm" 16 "3.4.8-1.el5.x86_64.rpm" 17 "3.4.9-1.el5.x86_64.rpm" 18 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4.0-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.4.1-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "3.4.10-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "3.4.11-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        5) echo "3.4.12-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        6) echo "3.4.13-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        7) echo "3.4.14-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        8) echo "3.4.15-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        9) echo "3.4.2-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        10) echo "3.4.3-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        11) echo "3.4.4-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        12) echo "3.4.4-2.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        13) echo "3.4.5-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        14) echo "3.4.6-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        15) echo "3.4.7-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        16) echo "3.4.8-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        17) echo "3.4.9-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.4.0-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.4.1-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "3.4.10-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "3.4.11-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        5) echo "3.4.12-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        6) echo "3.4.13-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        7) echo "3.4.14-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        8) echo "3.4.15-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        9) echo "3.4.2-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        10) echo "3.4.3-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        11) echo "3.4.4-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        12) echo "3.4.4-2.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        13) echo "3.4.5-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        14) echo "3.4.6-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        15) echo "3.4.7-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        16) echo "3.4.8-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        17) echo "3.4.9-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         18) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-agent.sh
@@ -1075,23 +1075,23 @@ opcao=$(dialog --stdout                                        \
 	18 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4.0-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.4.1-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "3.4.10-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "3.4.11-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        5) echo "3.4.12-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        6) echo "3.4.13-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        7) echo "3.4.14-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        8) echo "3.4.15-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        9) echo "3.4.2-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        10) echo "3.4.3-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        11) echo "3.4.4-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        12) echo "3.4.4-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        13) echo "3.4.5-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        14) echo "3.4.6-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        15) echo "3.4.7-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        16) echo "3.4.8-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        17) echo "3.4.9-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.4.0-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.4.1-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "3.4.10-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "3.4.11-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        5) echo "3.4.12-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        6) echo "3.4.13-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        7) echo "3.4.14-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        8) echo "3.4.15-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        9) echo "3.4.2-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        10) echo "3.4.3-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        11) echo "3.4.4-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        12) echo "3.4.4-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        13) echo "3.4.5-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        14) echo "3.4.6-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        15) echo "3.4.7-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        16) echo "3.4.8-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        17) echo "3.4.9-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         18) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-agent.sh
@@ -1129,24 +1129,24 @@ opcao=$(dialog  --stdout                                        \
         19 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4.0-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "3.4.1-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "3.4.10-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "3.4.11-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        5) echo "3.4.12-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        6) echo "3.4.13-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        7) echo "3.4.14-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        8) echo "3.4.15-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        9) echo "3.4.2-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        10) echo "3.4.3-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        11) echo "3.4.4-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        12) echo "3.4.4-2.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        13) echo "3.4.5-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        14) echo "3.4.6-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        15) echo "3.4.7-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        16) echo "3.4.8-0.0.1r80210.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        17) echo "3.4.8-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        18) echo "3.4.9-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "3.4.0-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "3.4.1-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "3.4.10-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "3.4.11-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        5) echo "3.4.12-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        6) echo "3.4.13-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        7) echo "3.4.14-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        8) echo "3.4.15-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        9) echo "3.4.2-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        10) echo "3.4.3-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        11) echo "3.4.4-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        12) echo "3.4.4-2.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        13) echo "3.4.5-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        14) echo "3.4.6-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        15) echo "3.4.7-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        16) echo "3.4.8-0.0.1r80210.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        17) echo "3.4.8-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        18) echo "3.4.9-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         19) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-agent.sh
@@ -1170,10 +1170,10 @@ opcao=$(dialog  --stdout                                        \
         5 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0.0-2.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "4.0.1-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "4.0.2-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "4.0.3-1.el5.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "4.0.0-2.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "4.0.1-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "4.0.2-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "4.0.3-1.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         5) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-agent.sh
@@ -1197,10 +1197,10 @@ opcao=$(dialog  --stdout                                        \
         5 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0.0-2.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "4.0.1-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "4.0.2-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "4.0.3-1.el6.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "4.0.0-2.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "4.0.1-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "4.0.2-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "4.0.3-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         5) exit;;	
         esac
         bash /zabbix/.config/rhel/zabbix-agent.sh
@@ -1224,10 +1224,10 @@ opcao=$(dialog  --stdout                                        \
         5 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0.0-2.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        2) echo "4.0.1-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        3) echo "4.0.2-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
-                        4) echo "4.0.3-1.el7.x86_64.rpm" > /tmp/versionzbx.txt;;
+                        1) echo "4.0.0-2.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        2) echo "4.0.1-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        3) echo "4.0.2-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        4) echo "4.0.3-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         5) exit;;
         esac
         bash /zabbix/.config/rhel/zabbix-agent.sh
@@ -1238,8 +1238,8 @@ else
 fi
 }
 function helpso(){
-cat /etc/*-release | grep PRETTY_NAME | cut -d= -f 2 > /tmp/seuso.txt
-dialog --backtitle "LRS Tecnologia LTDA" --title "Seu Sistema Operacional" --tailbox /tmp/seuso.txt 0 0
+cat /etc/*-release | grep PRETTY_NAME | cut -d= -f 2 > /zabbix/.config/var/seuso.txt
+dialog --backtitle "LRS Tecnologia LTDA" --title "Seu Sistema Operacional" --tailbox /zabbix/.config/var/seuso.txt 0 0
 if (( $? == 0 )); then
 	menu
 else
@@ -1247,8 +1247,8 @@ else
 fi
 }
 function helpversion(){
-cat /etc/*-release | grep VERSION | cut -d= -f 2 > /tmp/seuso.txt
-dialog --backtitle "LRS Tecnologia LTDA" --title "Sua Versão" --tailbox /tmp/seuso.txt 0 0
+cat /etc/*-release | grep VERSION | cut -d= -f 2 > /zabbix/.config/var/seuso.txt
+dialog --backtitle "LRS Tecnologia LTDA" --title "Sua Versão" --tailbox /zabbix/.config/var/seuso.txt 0 0
 if (( $? == 0 )); then
 	menu
 else
@@ -1257,5 +1257,3 @@ fi
 }
 
 menu
-
-
