@@ -1,11 +1,11 @@
 #!/bin/bash
-vso=$(cat /tmp/versionso.txt)
-vprimary=$(cat /tmp/versionprimary.txt)
-vzbx=$(cat /tmp/versionzbx.txt)
-fpinglink=$(cat /tmp/fpinglink.txt)
-fpingrpm=$(cat /tmp/fpingrpm.txt)
-libeventrpm=$(cat /tmp/libeventrpm.txt)
-unixodbcrpm=$(cat /tmp/unixodbcrpm.txt)
+vso=$(cat /zabbix/.config/var/versionso.txt)
+vprimary=$(cat /zabbix/.config/var/versionprimary.txt)
+vzbx=$(cat /zabbix/.config/var/versionzbx.txt)
+fpinglink=$(cat /zabbix/.config/var/fpinglink.txt)
+fpingrpm=$(cat /zabbix/.config/var/fpingrpm.txt)
+libeventrpm=$(cat /zabbix/.config/var/libeventrpm.txt)
+unixodbcrpm=$(cat /zabbix/.config/var/unixodbcrpm.txt)
 
 yum install wget gcc gcc-c++ kernel-devel OpenIPMI-libs net-snmp -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (1/23)..." 0 0
 if (( $? != 0 )); then
@@ -114,8 +114,8 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Configuração do banco de dados" 0 0
         exit
 fi
-find /usr/share/doc/ -name zabbix-proxy-mysql* > /tmp/zbx.txt
-dirmy=$( cat /tmp/zbx.txt )
+find /usr/share/doc/ -name zabbix-proxy-mysql* > /zabbix/.config/var/zbx.txt
+dirmy=$( cat /zabbix/.config/var/zbx.txt )
 zcat $dirmy/schema.sql.gz | mysql -u $userdb $namedb -p$passdb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (12/23)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Utilização do zcat" 0 0
