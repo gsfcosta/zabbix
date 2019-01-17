@@ -6,7 +6,8 @@ dialog
 if (( $? != 0 )); then
         yum install dialog -y
 fi
-dialog --backtitle "LRS Tecnologia LTDA" --ok-label Iniciar --msgbox "Bem-vindo!" 0 0
+dialog --backtitle "LRS Tecnologia LTDA" --ok-label Reiniciar --msgbox "Bem-vindo!" 0 0
+
 function menu(){
 opcao=$(dialog --stdout                                        \
 	--backtitle "LRS Tecnologia LTDA"               \
@@ -65,14 +66,12 @@ opcao=$(dialog  --stdout                                        \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
         0 0 0                                           \
-        1 "Zabbix Server"                               \
-        2 "Zabbix Agent"                                \
-        3 "Sair" )
+        1 "Zabbix Agent"                                \
+        2 "Sair" )
 if (( $? == 0 )); then
 	case $opcao in
-	        1) versionzbxs5 ;;
-       		2) versionzbxa5 ;;
-     		3) exit ;;
+       		1) versionzbxa5 ;;
+     		2) exit ;;
 	esac
 elif (( $? == 1 )); then
 	versionrhel
@@ -93,7 +92,7 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair" )
 if (( $? == 0 )); then
         case $opcao in
-                1) versionzbxs6 ;;
+                1) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64/rpmforge/RPMS/fping-3.9-1.el6.rf.x86_64.rpm" > /zabbix/.config/var/fpinglink.txt; echo "fping-3.9-1.el6.rf.x86_64.rpm" > /zabbix/.config/var/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/libevent-1.4.13-4.el6.x86_64.rpm" > /zabbix/.config/var/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/unixODBC-2.2.14-14.el6.x86_64.rpm" > /zabbix/.config/var/unixodbcrpm.txt; versionzbxs6 ;;
                 2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el6/en/x86_64/rpmforge/RPMS/fping-3.9-1.el6.rf.x86_64.rpm" > /zabbix/.config/var/fpinglink.txt; echo "fping-3.9-1.el6.rf.x86_64.rpm" > /zabbix/.config/var/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/libevent-1.4.13-4.el6.x86_64.rpm" > /zabbix/.config/var/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/6/os/x86_64/Packages/unixODBC-2.2.14-14.el6.x86_64.rpm" > /zabbix/.config/var/unixodbcrpm.txt; versionzbxp6 ;;
                 3) versionzbxa6 ;;
                 4) exit ;;
@@ -117,7 +116,7 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair" )
 if (( $? == 0 )); then
         case $opcao in
-                1) versionzbxs7 ;;
+                1) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el7/en/x86_64/rpmforge/RPMS/fping-3.10-1.el7.rf.x86_64.rpm" > /zabbix/.config/var/fpinglink.txt; echo "fping-3.10-1.el7.rf.x86_64" > /zabbix/.config/var/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/libevent-2.0.21-4.el7.x86_64.rpm" > /zabbix/.config/var/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/unixODBC-2.3.1-11.el7.x86_64.rpm" > /zabbix/.config/var/unixodbcrpm.txt; versionzbxs7 ;;
                 2) echo "http://ftp.tu-chemnitz.de/pub/linux/dag/redhat/el7/en/x86_64/rpmforge/RPMS/fping-3.10-1.el7.rf.x86_64.rpm" > /zabbix/.config/var/fpinglink.txt; echo "fping-3.10-1.el7.rf.x86_64" > /zabbix/.config/var/fpingrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/libevent-2.0.21-4.el7.x86_64.rpm" > /zabbix/.config/var/libeventrpm.txt; echo "https://rpmfind.net/linux/centos/7/os/x86_64/Packages/unixODBC-2.3.1-11.el7.x86_64.rpm" > /zabbix/.config/var/unixodbcrpm.txt; versionzbxp7 ;;
                 3) versionzbxa7 ;;
                 4) exit ;;
@@ -200,30 +199,6 @@ else
         exit
 fi
 }
-function versionzbxs5(){
-opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
-        --ok-label Selecionar                           \
-        --cancel-label Voltar                           \
-        --menu "Selecione a versão do Zabbix Server:"    \
-        0 0 0                                           \
-        1 "3.0"                                           \
-        2 "3.4"                                           \
-        3 "4.0"                                           \
-        4 "Sair." )
-if (( $? == 0 )); then
-        case $opcao in
-                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versions530 ;;
-                2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versions534 ;;
-                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versions540 ;;
-                4) exit ;;
-        esac
-elif (( $? == 1 )); then
-        zbx5
-else
-        exit
-fi
-}
 function versionzbxs6(){
 opcao=$(dialog  --stdout                                        \
         --backtitle "LRS Tecnologia LTDA"               \
@@ -239,7 +214,7 @@ if (( $? == 0 )); then
         case $opcao in
                 1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; versions630 ;;
                 2) echo "3.4" > /zabbix/.config/var/versionprimary.txt; versions634 ;;
-                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versions64.rpm0 ;;
+                3) echo "4.0" > /zabbix/.config/var/versionprimary.txt; versions640 ;;
                 4) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -320,27 +295,6 @@ else
         exit
 fi
 }
-function versions530(){
-opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
-        --ok-label Selecionar                           \
-        --cancel-label Voltar                           \
-        --menu "Selecione a versão do Zabbix Server:"    \
-        0 0 0                                           \
-        1 "3.0-1.el5.noarch.rpm"                                 \
-        2 "Sair")
-if (( $? == 0 )); then
-        case $opcao in
-                        1) echo "3.0-1.el5.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
-                        2) exit;;
-        esac
-        bash /zabbix/.config/rhel/zabbix-server.sh
-elif (( $? == 1 )); then
-        versionzbxs5
-else
-        exit
-fi
-}
 function versions630(){
 opcao=$(dialog  --stdout                                        \
         --backtitle "LRS Tecnologia LTDA"               \
@@ -352,10 +306,9 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        1) echo "3.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
                         2) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-server.sh
 elif (( $? == 1 )); then
         versionzbxs6
 else
@@ -373,33 +326,11 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        1) echo "3.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
                         2) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-server.sh
 elif (( $? == 1 )); then
         versionzbxs7
-else
-        exit
-fi
-}
-function versions534(){
-opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
-        --ok-label Selecionar                           \
-        --cancel-label Voltar                           \
-        --menu "Selecione a versão do Zabbix Server:"    \
-        0 0 0                                           \
-        1 "3.4-1.noarch.rpm"                                 \
-        2 "Sair")
-if (( $? == 0 )); then
-        case $opcao in
-                        1) echo "3.4-1.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
-                        2) exit;;
-        esac
-        bash /zabbix/.config/rhel/zabbix-server.sh
-elif (( $? == 1 )); then
-        versionzbxs5
 else
         exit
 fi
@@ -415,10 +346,9 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        1) echo "3.4-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
                         2) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-server.sh
 elif (( $? == 1 )); then
         versionzbxs6
 else
@@ -437,34 +367,12 @@ opcao=$(dialog  --stdout                                        \
         3 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4-1.el7.centos.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
-                        2) echo "3.4-2.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        1) echo "3.4-1.el7.centos.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
+                        2) echo "3.4-2.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
                         3) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-server.sh
 elif (( $? == 1 )); then
         versionzbxs7
-else
-        exit
-fi
-}
-function versions540(){
-opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
-        --ok-label Selecionar                           \
-        --cancel-label Voltar                           \
-        --menu "Selecione a versão do Zabbix Server:"    \
-        0 0 0                                           \
-        1 "4.0-1.el5.noarch.rpm"                                 \
-        2 "Sair")
-if (( $? == 0 )); then
-        case $opcao in
-                        1) echo "4.0-1.el5.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
-                        2) exit;;
-        esac
-        bash /zabbix/.config/rhel/zabbix-server.sh
-elif (( $? == 1 )); then
-        versionzbxs5
 else
         exit
 fi
@@ -480,10 +388,9 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        1) echo "4.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
                         2) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-server.sh
 elif (( $? == 1 )); then
         versionzbxs6
 else
@@ -501,10 +408,9 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                        1) echo "4.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
                         2) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-server.sh
 elif (( $? == 1 )); then
         versionzbxs7
 else
@@ -765,7 +671,7 @@ else
         exit
 fi
 }
-function versionp64.rpm0(){
+function versionp640(){
 opcao=$(dialog  --stdout                                        \
         --backtitle "LRS Tecnologia LTDA"               \
         --ok-label Selecionar                           \
@@ -1255,5 +1161,10 @@ else
 	exit
 fi
 }
-
+function selinuxx(){
+setenforce 0
+echo "SELINUX=disabled" > /etc/selinux/config
+echo "SELINUXTYPE=targeted" >> /etc/selinux/config
+bash /zabbix/.config/rhel/zabbix-server.sh
+}
 menu

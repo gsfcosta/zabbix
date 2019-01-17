@@ -2,28 +2,63 @@
 vso=$(cat /zabbix/.config/var/versionso.txt)
 vprimary=$(cat /zabbix/.config/var/versionprimary.txt)
 vzbx=$(cat /zabbix/.config/var/versionzbx.txt)
+fpinglink=$(cat /zabbix/.config/var/fpinglink.txt)
+fpingrpm=$(cat /zabbix/.config/var/fpingrpm.txt)
+libeventrpm=$(cat /zabbix/.config/var/libeventrpm.txt)
+unixodbcrpm=$(cat /zabbix/.config/var/unixodbcrpm.txt)
 
-yum install net-snmp -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (1/8)..." 0 0
+mv /zabbix/rc.local.old /etc/rc.local
+yum install wget gcc gcc-c++ kernel-devel OpenIPMI-libs net-snmp -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (1/15)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação das dependencias" 0 0
         exit
 fi
-rpm -i http://repo.zabbix.com/zabbix/$vprimary/rhel/$vso/x86_64/zabbix-release-$vzbx | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (2/8)..." 0 0
+wget $fpinglink  | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (2/15)..." 0 0
+if (( $? != 0 )); then
+        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download fping" 0 0
+        exit
+fi
+rpm -ivh $fpingrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (3/15)..." 0 0
+if (( $? != 0 )); then
+        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do fping" 0 0
+        exit
+fi
+yum install fping -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (4/15)..." 0 0
+if (( $? != 0 )); then
+        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do fping pelo repo" 0 0
+        exit
+fi
+rpm -ivh $libeventrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (5/15)..." 0 0
+if (( $? != 0 )); then
+        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? download e instalação do libevent" 0 0
+        exit
+fi
+rpm -ivh $unixodbcrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (6/15)..." 0 0
+if (( $? != 0 )); then
+        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download e instalação do OBDC" 0 0
+        exit
+fi
+rpm --import http://repo.zabbix.com/RPM-GPG-KEY-ZABBIX | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (7/15)..." 0 0
+if (( $? != 0 )); then
+        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - importação key zabbix" 0 0
+        exit
+fi
+rpm -ivh http://repo.zabbix.com/zabbix/$vprimary/rhel/$vso/x86_64/zabbix-release-$vzbx | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (8/15)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download e instalação do repo zabbix" 0 0
         exit
 fi
-yum install zabbix-server-mysql zabbix-web-mysql mariadb-server -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (3/8)..." 0 0
+yum install zabbix-server-mysql zabbix-web-mysql mariadb-server -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (9/15)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix server e mariadb server" 0 0
         exit
 fi
-yum install zabbix-server-mysql zabbix-web-mysql mariadb-server -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (3/8)..." 0 0
+yum install zabbix-server-mysql zabbix-web-mysql mariadb-server -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (10/15)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix server e mariadb server 2" 0 0
         exit
 fi
-systemctl enable mariadb && systemctl start mariadb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (4/8)..." 0 0
+systemctl enable mariadb && systemctl start mariadb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (11/15)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - habilitação do mariadb" 0 0
         exit
@@ -114,15 +149,15 @@ fi
 function cont(){
 if (( $varmy == 2 )); then
 	mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$root2');"
-	mysql -u root -p$root2 -e "create database $namedb character set utf8 collate utf8_bin; grant all privileges on $namedb.* to $userdb@localhost identified by '$passdb'; flush privileges;" | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (5/8)..." 0 0
+	mysql -u root -p$root2 -e "create database $namedb character set utf8 collate utf8_bin; grant all privileges on $namedb.* to $userdb@localhost identified by '$passdb'; flush privileges;" | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (12/15)..." 0 0
 elif (( $varmy == 1 )); then
-	mysql -u root -p$rot -e "create database $namedb character set utf8 collate utf8_bin; grant all privileges on $namedb.* to $userdb@localhost identified by '$passdb'; flush privileges;" | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (5/8)..." 0 0
+	mysql -u root -p$rot -e "create database $namedb character set utf8 collate utf8_bin; grant all privileges on $namedb.* to $userdb@localhost identified by '$passdb'; flush privileges;" | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (12/15)..." 0 0
 fi
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Configuração do banco de dados" 0 0
         exit
 fi
-zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -u $userdb $namedb -p$passdb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (6/8)..." 0 0
+zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -u $userdb $namedb -p$passdb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (13/15)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Utilização do zcat" 0 0
         exit
@@ -145,8 +180,11 @@ fin
 }
 function fin(){
 iptables -F
-systemctl restart zabbix-server httpd | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (7/8)..." 0 0
-systemctl enable zabbix-server httpd | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (8/8)..." 0 0
+sed 's/# php_value date.timezone Europe/php_value date.timezone America/' -i /etc/httpd/conf.d/zabbix.conf
+sed 's/Riga/Sao_Paulo/' -i /etc/httpd/conf.d/zabbix.conf
+systemctl restart zabbix-server httpd | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (14/15)..." 0 0
+systemctl enable zabbix-server httpd | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (15/15)..." 0 0
+iptables -F
 dialog --backtitle "LRS Tecnologia LTDA" --ok-label ok --msgbox "Instalação completa" 0 0
 dialog --backtitle "LRS Tecnologia LTDA" --title "LOG zabbix_server" --tailbox /var/log/zabbix/zabbix_server.log 100 100
 exit
