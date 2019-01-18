@@ -12,12 +12,7 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação das dependencias" 0 0
         exit
 fi
-wget $fpinglink  | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (2/23)..." 0 0
-if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download fping" 0 0
-        exit
-fi
-rpm -ivh $fpingrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (3/23)..." 0 0
+rpm -ivh /zabbix/.config/archives/$fpingrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (3/23)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do fping" 0 0
         exit
@@ -27,12 +22,12 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do fping pelo repo" 0 0
         exit
 fi
-rpm -ivh $libeventrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (5/23)..." 0 0
+rpm -ivh /zabbix/.config/archives/$libeventrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (5/23)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? download e instalação do libevent" 0 0
         exit
 fi
-rpm -ivh $unixodbcrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (6/23)..." 0 0
+rpm -ivh /zabbix/.config/archives/$unixodbcrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (6/23)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download e instalação do OBDC" 0 0
         exit

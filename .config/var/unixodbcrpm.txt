@@ -1,1 +1,1 @@
-https://rpmfind.net/linux/centos/7/os/x86_64/Packages/unixODBC-2.3.1-11.el7.x86_64.rpm
+unixODBC-2.3.1-11.el7.x86_64.rpm

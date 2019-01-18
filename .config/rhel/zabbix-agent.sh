@@ -34,6 +34,7 @@ else
 fi
 }
 function cont(){
+chmod 777 /run/zabbix -R
 systemctl restart zabbix-agent | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (3/4)..." 0 0
 chkconfig zabbix-agent on | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (4/4)..." 0 0
 dialog --backtitle "LRS Tecnologia LTDA" --msgbox "Instalação Completa" 0 0
