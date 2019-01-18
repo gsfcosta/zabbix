@@ -7,70 +7,70 @@ libeventrpm=$(cat /zabbix/.config/var/libeventrpm.txt)
 unixodbcrpm=$(cat /zabbix/.config/var/unixodbcrpm.txt)
 phprpm=$(cat /zabbix/.config/var/phprpm.txt)
 epelrpm=$(cat /zabbix/.config/var/epelrpm.txt)
-yum install wget gcc gcc-c++ kernel-devel OpenIPMI-libs net-snmp php -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (1/19)..." 0 0
+yum install wget gcc gcc-c++ kernel-devel OpenIPMI-libs net-snmp php -y
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação das dependencias" 0 0
         exit
 fi
-rpm -ivh /zabbix/.config/archives/$fpingrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (3/19)..." 0 0
+rpm -ivh /zabbix/.config/archives/$fpingrpm 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do fping" 0 0
         exit
 fi
-yum install fping -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (4/19)..." 0 0
+yum install fping -y 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do fping pelo repo" 0 0
         exit
 fi
-rpm -ivh /zabbix/.config/archives/$libeventrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (5/19)..." 0 0
+rpm -ivh /zabbix/.config/archives/$libeventrpm 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? download e instalação do libevent" 0 0
         exit
 fi
-rpm -ivh /zabbix/.config/archives/$unixodbcrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (6/19)..." 0 0
+rpm -ivh /zabbix/.config/archives/$unixodbcrpm 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download e instalação do OBDC" 0 0
         exit
 fi
-rpm --import http://repo.zabbix.com/RPM-GPG-KEY-ZABBIX | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (7/19)..." 0 0
+rpm --import http://repo.zabbix.com/RPM-GPG-KEY-ZABBIX 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - importação key zabbix" 0 0
         exit
 fi
-rpm -ivh http://repo.zabbix.com/zabbix/$vprimary/rhel/$vso/x86_64/zabbix-release-$vzbx | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (8/19)..." 0 0
+rpm -ivh http://repo.zabbix.com/zabbix/$vprimary/rhel/$vso/x86_64/zabbix-release-$vzbx 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download e instalação do repo zabbix" 0 0
         exit
 fi
 case $vso in
-	6) subscription-manager repos --enable=rhel-6-server-optional-rpms | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (9/19)..." 0 0;;
-	7) subscription-manager repos --enable=rhel-7-server-optional-rpms | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (9/19)..." 0 0;;
+	6) subscription-manager repos --enable=rhel-6-server-optional-rpms 
+	7) subscription-manager repos --enable=rhel-7-server-optional-rpms
 esac
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Rhel conf" 0 0
         exit
 fi
-rpm -Uvh /zabbix/.config/archives/$phprpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (10/19)..." 0 0 
+rpm -Uvh /zabbix/.config/archives/$phprpm 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Download repo php" 0 0
         exit
 fi
-rpm -Uvh /zabbix/.config/archives/$epelrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (11/19)..." 0 0
+rpm -Uvh /zabbix/.config/archives/$epelrpm
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Download repo epel" 0 0
         exit
 fi
-yum install php-mbstring -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (12/19)..." 0 0
+yum install php-mbstring -y
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Instalação dos repo mb-string" 0 0
         exit
 fi
-yum install zabbix-server-mysql zabbix-web-mysql mariadb-server -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (13/19)..." 0 0
+yum install zabbix-server-mysql zabbix-web-mysql mariadb-server -y 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix server e mariadb server 2" 0 0
         exit
 fi
-systemctl enable mariadb && systemctl start mariadb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (14/19)..." 0 0
+systemctl enable mariadb && systemctl start mariadb 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - habilitação do mariadb" 0 0
         exit
@@ -169,7 +169,7 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Configuração do banco de dados" 0 0
         exit
 fi
-zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -u $userdb $namedb -p$passdb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (17/19)..." 0 0
+zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -u $userdb $namedb -p$passdb
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Utilização do zcat" 0 0
         exit
@@ -195,8 +195,8 @@ iptables -F
 sed 's/# php_value date.timezone Europe/php_value date.timezone America/' -i /etc/httpd/conf.d/zabbix.conf
 sed 's/Riga/Sao_Paulo/' -i /etc/httpd/conf.d/zabbix.conf
 chmod 777 /run/zabbix/* -R
-systemctl restart zabbix-server httpd | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (18/19)..." 0 0
-systemctl enable zabbix-server httpd | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (19/19)..." 0 0
+systemctl restart zabbix-server httpd 
+systemctl enable zabbix-server httpd 
 iptables -F
 dialog --backtitle "LRS Tecnologia LTDA" --ok-label ok --msgbox "Instalação completa" 0 0
 dialog --backtitle "LRS Tecnologia LTDA" --title "LOG zabbix_server" --tailbox /var/log/zabbix/zabbix_server.log 100 100
