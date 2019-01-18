@@ -185,7 +185,7 @@ echo "LogFile=/var/log/zabbix/zabbix_proxy.log" >> /etc/zabbix/zabbix_proxy.conf
 
 iptables -F
 
-rm -rf /usr/lib/systemd/system/zabbix-proxy.service
+mv /usr/lib/systemd/system/zabbix-proxy.service /zabbix/.config/rhel/zabbix-proxy.service.old
 cp /zabbix/.config/rhel/zabbix-proxy.service /usr/lib/systemd/system/zabbix-proxy.service
 
 systemctl enable zabbix-proxy | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (13/23)..." 0 0
@@ -217,4 +217,4 @@ dialog --backtitle "LRS Tecnologia LTDA" --ok-label ok --msgbox "Instalação co
 dialog --backtitle "LRS Tecnologia LTDA" --title "LOG zabbix_proxy" --tailbox /var/log/zabbix/zabbix_proxy.log 100 100
 exit
 }
-rot
+menuroot
