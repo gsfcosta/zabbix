@@ -6,47 +6,47 @@ fpingrpm=$(cat /zabbix/.config/var/fpingrpm.txt)
 libeventrpm=$(cat /zabbix/.config/var/libeventrpm.txt)
 unixodbcrpm=$(cat /zabbix/.config/var/unixodbcrpm.txt)
 
-yum install wget gcc gcc-c++ kernel-devel OpenIPMI-libs net-snmp -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (1/23)..." 0 0
+yum install wget gcc gcc-c++ kernel-devel OpenIPMI-libs net-snmp -y 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação das dependencias" 0 0
         exit
 fi
-rpm -ivh /zabbix/.config/archives/$fpingrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (3/23)..." 0 0
+rpm -ivh /zabbix/.config/archives/$fpingrpm
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do fping" 0 0
         exit
 fi
-yum install fping -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (4/23)..." 0 0
+yum install fping -y
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do fping pelo repo" 0 0
         exit
 fi
-rpm -ivh /zabbix/.config/archives/$libeventrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (5/23)..." 0 0
+rpm -ivh /zabbix/.config/archives/$libeventrpm 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? download e instalação do libevent" 0 0
         exit
 fi
-rpm -ivh /zabbix/.config/archives/$unixodbcrpm | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (6/23)..." 0 0
+rpm -ivh /zabbix/.config/archives/$unixodbcrpm
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download e instalação do OBDC" 0 0
         exit
 fi
-rpm --import http://repo.zabbix.com/RPM-GPG-KEY-ZABBIX | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (7/23)..." 0 0
+rpm --import http://repo.zabbix.com/RPM-GPG-KEY-ZABBIX
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - importação key zabbix" 0 0
         exit
 fi
-rpm -ivh http://repo.zabbix.com/zabbix/$vprimary/rhel/$vso/x86_64/zabbix-proxy-mysql-$vzbx | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (8/23)..." 0 0
+rpm -ivh http://repo.zabbix.com/zabbix/$vprimary/rhel/$vso/x86_64/zabbix-proxy-mysql-$vzbx
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download e instalação do repo zabbix" 0 0
         exit
 fi
-yum install zabbix-proxy-mysql mariadb-server -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (9/23)..." 0 0
+yum install zabbix-proxy-mysql mariadb-server -y
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix proxy e mariadb server" 0 0
         exit
 fi
-systemctl enable mariadb && systemctl start mariadb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (10/23)..." 0 0
+systemctl enable mariadb && systemctl start mariadb
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - habilitação do mariadb" 0 0
         exit
@@ -146,7 +146,7 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Configuração do banco de dados" 0 0
         exit
 fi
-zcat /usr/share/doc/zabbix-proxy-mysql*/schema.sql.gz | mysql -u $userdb $namedb -p$passdb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (12/23)..." 0 0
+zcat /usr/share/doc/zabbix-proxy-mysql*/schema.sql.gz | mysql -u $userdb $namedb -p$passdb 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Utilização do zcat" 0 0
         exit
@@ -182,13 +182,13 @@ iptables -F
 mv /usr/lib/systemd/system/zabbix-proxy.service /zabbix/.config/rhel/zabbix-proxy.service.old
 cp /zabbix/.config/rhel/zabbix-proxy.service /usr/lib/systemd/system/zabbix-proxy.service
 
-systemctl enable zabbix-proxy | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (13/23)..." 0 0
-systemctl start zabbix-proxy | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (14/23)..." 0 0
-yum install policycoreutils-python -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (15/23)..." 0 0
-cat /var/log/audit/audit.log | grep zabbix_proxy | grep denied | audit2allow -M zabbix_proxy |  dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (16/23)..." 0 0
-semodule -i zabbix_proxy.pp | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (17/23)..." 0 0
-setsebool -P zabbix_can_network=1 | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (18/23)..." 0 0
-systemctl start zabbix-proxy | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (19/23)..." 0 0
+systemctl enable zabbix-proxy
+systemctl start zabbix-proxy 
+yum install policycoreutils-python -y 
+cat /var/log/audit/audit.log | grep zabbix_proxy | grep denied | audit2allow -M zabbix_proxy 
+semodule -i zabbix_proxy.pp 
+setsebool -P zabbix_can_network=1
+systemctl start zabbix-proxy 
 echo "module zabbix_proxy 1.0;" > zabbix_proxy.te
 echo "require {" >> zabbix_proxy.te
 echo "        type zabbix_t;" >> zabbix_proxy.te
@@ -203,10 +203,10 @@ echo " " >> zabbix_proxy.te
 echo "#!!!! This avc is allowed in the current policy" >> zabbix_proxy.te
 echo "allow zabbix_t zabbix_port_t:tcp_socket name_connect;" >> zabbix_proxy.te
 
-checkmodule -m -M zabbix_proxy.te -o zabbix_proxy.mod | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (20/23)..." 0 0
-semodule_package -m zabbix_proxy.mod -o zabbix_proxy.pp | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (21/23)..." 0 0
-semodule -i zabbix_proxy.pp | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (22/23)..." 0 0
-systemctl restart zabbix-proxy | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (23/23)..." 0 0
+checkmodule -m -M zabbix_proxy.te -o zabbix_proxy.mod 
+semodule_package -m zabbix_proxy.mod -o zabbix_proxy.pp
+semodule -i zabbix_proxy.pp
+systemctl restart zabbix-proxy
 dialog --backtitle "LRS Tecnologia LTDA" --ok-label ok --msgbox "Instalação completa" 0 0
 dialog --backtitle "LRS Tecnologia LTDA" --title "LOG zabbix_proxy" --tailbox /var/log/zabbix/zabbix_proxy.log 100 100
 exit
