@@ -57,25 +57,54 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - habilitação do mariadb" 0 0
         exit
 fi
-function rot(){
-rot=$( dialog --stdout --ok-label Confirmar --cancel-label Sair --title "Configuração MYSQL" --inputbox "Criar Senha para root do DB:" 0 0 )
+function menuroot(){
+opcao=$(dialog --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Sair                             \
+        --menu "Root do DB:"         \
+        0 0 0                                           \
+        1 "Usar minha senha do root"                         \
+        2 "Root não tem senha (criar senha)" )
+case $opcao in
+        1) rot1;;
+        2) rot2;;
+        *) exit;;
+esac
+}
+function rot1(){
+rot=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "Configuração MYSQL" --inputbox "Senha root do DB:" 0 0 )
 if (( $? == 0 )); then
-        rot2=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "Configuração MYSQL" --inputbox "Confirmar Senha:" 0 0 )
+        varmy=1
+        nomedb
+elif (( $? == 1 )); then
+        menuroot
+else
+        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        rot1
+fi
+}
+function rot2(){
+root1=$( dialog --stdout --ok-label Confirmar --cancel-label Sair --title "Configuração MYSQL" --inputbox "Criar Senha para root do DB:" 0 0 )
+if (( $? == 0 )); then
+        root2=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "Configuração MYSQL" --inputbox "Confirmar Senha:" 0 0 )
                 if (( $? == 0 )); then
-                        if [ $rot == $rot2 ]; then
-                                mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$rot');"
+                        if [ $root1 == $root2 ]; then
+                                varmy=2
                                 nomedb
-                        else    
+                        else
                                 dialog --backtitle "LRS Tecnologia LTDA" --ok-label Voltar --msgbox "Senhas não combinam" 0 0
-                                rot
-                        fi   
+                                rot2
+                        fi
                 elif (( $? == 1 )); then
-                        rot
+                        menuroot
                 else
-                        exit
+                        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+                        rot2
                 fi
 else
-        exit
+        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        rot2
 fi
 }
 function nomedb(){
@@ -83,9 +112,10 @@ namedb=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "Co
 if (( $? == 0 )); then
         usuariodb
 elif (( $? == 1 )); then
-        rot
+        menuroot
 else
-        exit
+        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        nomedb
 fi
 }
 function usuariodb(){
@@ -95,7 +125,8 @@ if (( $? == 0 )); then
 elif (( $? == 1 )); then
         nomedb
 else
-        exit
+        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        usuariodb
 fi
 }
 function senhadb(){
@@ -105,18 +136,23 @@ if (( $? == 0 )); then
 elif (( $? == 1 )); then
         usuariodb
 else
-        exit
+        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        senhadb
 fi
 }
 function cont(){
-mysql -u root -p$rot -e "create database $namedb character set utf8 collate utf8_bin; grant all privileges on $namedb.* to $userdb@localhost identified by '$passdb'; flush privileges;" | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (11/23)..." 0 0
+if (( $varmy == 2 )); then
+        mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$root2');"
+        mysql -u root -p$root2 -e "create database $namedb character set utf8 collate utf8_bin; grant all privileges on $namedb.* to $userdb@localhost identified by '$passdb'; flush privileges;" | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (15/19)..." 0 0
+elif (( $varmy == 1 )); then
+        mysql -u root -p$rot -e "create database $namedb character set utf8 collate utf8_bin; grant all privileges on $namedb.* to $userdb@localhost identified by '$passdb'; flush privileges;" | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (16/19)..." 0 0
+fi
+
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Configuração do banco de dados" 0 0
         exit
 fi
-find /usr/share/doc/ -name zabbix-proxy-mysql* > /zabbix/.config/var/zbx.txt
-dirmy=$( cat /zabbix/.config/var/zbx.txt )
-zcat $dirmy/schema.sql.gz | mysql -u $userdb $namedb -p$passdb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (12/23)..." 0 0
+zcat /usr/share/doc/zabbix-proxy-mysql*/schema.sql.gz | mysql -u $userdb $namedb -p$passdb | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (12/23)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Utilização do zcat" 0 0
         exit
