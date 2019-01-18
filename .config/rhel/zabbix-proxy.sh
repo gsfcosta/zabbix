@@ -2,7 +2,6 @@
 vso=$(cat /zabbix/.config/var/versionso.txt)
 vprimary=$(cat /zabbix/.config/var/versionprimary.txt)
 vzbx=$(cat /zabbix/.config/var/versionzbx.txt)
-fpinglink=$(cat /zabbix/.config/var/fpinglink.txt)
 fpingrpm=$(cat /zabbix/.config/var/fpingrpm.txt)
 libeventrpm=$(cat /zabbix/.config/var/libeventrpm.txt)
 unixodbcrpm=$(cat /zabbix/.config/var/unixodbcrpm.txt)

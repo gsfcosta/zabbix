@@ -306,7 +306,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
+                        1) echo "3.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxxs;;
                         2) exit;;
         esac
 elif (( $? == 1 )); then
@@ -326,7 +326,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
+                        1) echo "3.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxxs;;
                         2) exit;;
         esac
 elif (( $? == 1 )); then
@@ -346,7 +346,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
+                        1) echo "3.4-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxxs;;
                         2) exit;;
         esac
 elif (( $? == 1 )); then
@@ -367,8 +367,8 @@ opcao=$(dialog  --stdout                                        \
         3 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "3.4-1.el7.centos.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
-                        2) echo "3.4-2.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
+                        1) echo "3.4-1.el7.centos.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxxs;;
+                        2) echo "3.4-2.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxxs;;
                         3) exit;;
         esac
 elif (( $? == 1 )); then
@@ -388,7 +388,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
+                        1) echo "4.0-1.el6.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxxs;;
                         2) exit;;
         esac
 elif (( $? == 1 )); then
@@ -408,7 +408,7 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair")
 if (( $? == 0 )); then
         case $opcao in
-                        1) echo "4.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxx;;
+                        1) echo "4.0-1.el7.noarch.rpm" > /zabbix/.config/var/versionzbx.txt; selinuxxs;;
                         2) exit;;
         esac
 elif (( $? == 1 )); then
@@ -483,7 +483,7 @@ if (( $? == 0 )); then
                         27) echo "3.0.9-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         28) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-proxy.sh
+	selinuxxp
 elif (( $? == 1 )); then
         versionzbxp6
 else
@@ -556,7 +556,7 @@ if (( $? == 0 )); then
                         27) echo "3.0.9-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         28) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-proxy.sh
+	selinuxxp
 elif (( $? == 1 )); then
         versionzbxp7
 else
@@ -609,7 +609,7 @@ if (( $? == 0 )); then
                         17) echo "3.4.9-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         18) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-proxy.sh
+	selinuxxp
 elif (( $? == 1 )); then
         versionzbxp6
 else
@@ -664,7 +664,7 @@ if (( $? == 0 )); then
                         18) echo "3.4.9-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         19) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-proxy.sh
+	selinuxxp
 elif (( $? == 1 )); then
         versionzbxp7
 else
@@ -691,7 +691,7 @@ if (( $? == 0 )); then
                         4) echo "4.0.3-1.el6.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         5) exit;;	
         esac
-        bash /zabbix/.config/rhel/zabbix-proxy.sh
+	selinuxxp
 elif (( $? == 1 )); then
         versionzbxp6
 else
@@ -718,7 +718,7 @@ if (( $? == 0 )); then
                         4) echo "4.0.3-1.el7.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
                         5) exit;;
         esac
-        bash /zabbix/.config/rhel/zabbix-proxy.sh
+	selinuxxp
 elif (( $? == 1 )); then
         versionzbxp7
 else
@@ -1161,10 +1161,16 @@ else
 	exit
 fi
 }
-function selinuxx(){
+function selinuxxs(){
 setenforce 0
 echo "SELINUX=disabled" > /etc/selinux/config
 echo "SELINUXTYPE=targeted" >> /etc/selinux/config
 bash /zabbix/.config/rhel/zabbix-server.sh
+}
+function selinuxxp(){
+setenforce 0
+echo "SELINUX=disabled" > /etc/selinux/config
+echo "SELINUXTYPE=targeted" >> /etc/selinux/config
+bash /zabbix/.config/rhel/zabbix-proxy.sh
 }
 menu
