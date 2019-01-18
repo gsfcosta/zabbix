@@ -8,7 +8,7 @@ libeventrpm=$(cat /zabbix/.config/var/libeventrpm.txt)
 unixodbcrpm=$(cat /zabbix/.config/var/unixodbcrpm.txt)
 phprpm=$(cat /zabbix/.config/var/phprpm.txt)
 epelrpm=$(cat /zabbix/.config/var/epelrpm.txt)
-yum install wget gcc gcc-c++ kernel-devel OpenIPMI-libs net-snmp -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (1/19)..." 0 0
+yum install wget gcc gcc-c++ kernel-devel OpenIPMI-libs net-snmp php -y | dialog --backtitle "LRS Tecnologia LTDA" --infobox "Instalando, aguarde (1/19)..." 0 0
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação das dependencias" 0 0
         exit

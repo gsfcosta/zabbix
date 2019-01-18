@@ -1,1 +1,1 @@
-fping-3.10-1.el7.rf.x86_64.rpm
+fping-3.10-1.el7.rf.x86_64
