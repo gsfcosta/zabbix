@@ -2,6 +2,9 @@
 vprimary=$(cat /zabbix/.config/var/versionprimary.txt)
 vzbx=$(cat /zabbix/.config/var/versionzbx.txt)
 apt-get install apache2 php -y
+apt-get install apache2 php5 -y
+apt-get install apache2 php7 -y
+apt-get install apache2 php7.0 -y
 wget http://repo.zabbix.com/zabbix/$vprimary/debian/pool/main/z/zabbix-release/zabbix-release_$vzbx
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download do repo zabbix" 0 0
@@ -17,7 +20,7 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix server e mariadb server" 0 0
         exit
 fi
-systemctl enable mariadb && systemctl start mariadb 
+systemctl enable mysql && systemctl start mysql
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - habilitação do mariadb" 0 0
         exit
@@ -141,6 +144,8 @@ function fin(){
 iptables -F
 sed 's/# php_value date.timezone Europe/php_value date.timezone America/' -i /etc/zabbix/apache.conf
 sed 's/Riga/Sao_Paulo/' -i /etc/zabbix/apache.conf
+sed 's/Infinity/0/' -i /lib/systemd/system/zabbix-server.service
+sed 's/infinity/0/' -i /lib/systemd/system/zabbix-server.service
 chmod 777 /run/zabbix/* -R
 systemctl restart zabbix-server apache2 
 systemctl enable zabbix-server apache2
