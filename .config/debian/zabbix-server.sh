@@ -15,6 +15,7 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Instalação do repo zabbix" 0 0
         exit
 fi
+apt-get update -y
 apt-get install zabbix-server-mysql zabbix-frontend-php mariadb-server -y
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix server e mariadb server" 0 0

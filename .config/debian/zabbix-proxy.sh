@@ -11,12 +11,13 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Instalação do repo zabbix" 0 0
         exit
 fi
+apt-get update
 apt-get install zabbix-proxy-mysql mariadb-server -y
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix server e mariadb server" 0 0
+        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix proxy mariadb server" 0 0
         exit
 fi
-systemctl enable mariadb && systemctl start mariadb 
+systemctl enable mysql && systemctl start mysql 
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - habilitação do mariadb" 0 0
         exit
@@ -120,32 +121,44 @@ if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Utilização do zcat" 0 0
         exit
 fi
-srv
+zbx
 }
+function zbx(){
+server=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "Configuração do proxy" --inputbox 'IP Server:' 0 0 )
+if (( $? == 0 )); then
+        hostnm
+else
+        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        zbx
+fi
+}
+function hostnm(){
+hostname=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "Configuração do proxy" --inputbox 'Hostname:' 0 0 )
+if (( $? == 0 )); then
+        srv
+else
+        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        hostnm
+fi
+}
+
 function srv(){
-echo "LogFile=/var/log/zabbix/zabbix_server.log" > /etc/zabbix/zabbix_server.conf
-echo "PidFile=/var/run/zabbix/zabbix_server.pid" >> /etc/zabbix/zabbix_server.conf
-echo "SocketDir=/var/run/zabbix" >> /etc/zabbix/zabbix_server.conf
-echo "DBName=$namedb" >> /etc/zabbix/zabbix_server.conf
-echo "DBUser=$userdb" >> /etc/zabbix/zabbix_server.conf
-echo "DBPassword=$passdb" >> /etc/zabbix/zabbix_server.conf
-echo "SNMPTrapperFile=/var/log/snmptrap/snmptrap.log" >> /etc/zabbix/zabbix_server.conf
-echo "Timeout=4" >> /etc/zabbix/zabbix_server.conf
-echo "AlertScriptsPath=/usr/lib/zabbix/alertscripts" >> /etc/zabbix/zabbix_server.conf
-echo "ExternalScripts=/usr/lib/zabbix/externalscripts" >> /etc/zabbix/zabbix_server.conf
-echo "LogSlowQueries=3000" >> /etc/zabbix/zabbix_server.conf
+echo "Server=$server" > /etc/zabbix/zabbix_proxy.conf
+echo "Hostname=$hostname" >> /etc/zabbix/zabbix_proxy.conf
+echo "DBName=$namedb" >> /etc/zabbix/zabbix_proxy.conf
+echo "DBUser=$userdb" >> /etc/zabbix/zabbix_proxy.conf
+echo "DBPassword=$passdb" >> /etc/zabbix/zabbix_proxy.conf
+echo "LogFile=/var/log/zabbix/zabbix_proxy.log" >> /etc/zabbix/zabbix_proxy.conf
 fin
 }
 function fin(){
 iptables -F
-sed 's/# php_value date.timezone Europe/php_value date.timezone America/' -i /etc/zabbix/apache.conf
-sed 's/Riga/Sao_Paulo/' -i /etc/zabbix/apache.conf
 chmod 777 /run/zabbix/* -R
-systemctl restart zabbix-server apache2 
-systemctl enable zabbix-server apache2
+systemctl restart zabbix-proxy
+systemctl enable zabbix-proxy
 iptables -F
 dialog --backtitle "LRS Tecnologia LTDA" --ok-label ok --msgbox "Instalação completa" 0 0
-dialog --backtitle "LRS Tecnologia LTDA" --title "LOG zabbix_server" --tailbox /var/log/zabbix/zabbix_server.log 100 100
+dialog --backtitle "LRS Tecnologia LTDA" --title "LOG zabbix_proxy" --tailbox /var/log/zabbix/zabbix_proxy.log 100 100
 exit
 }
 menuroot
