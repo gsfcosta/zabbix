@@ -47,15 +47,15 @@ case $vso in
 	7) subscription-manager repos --enable=rhel-7-server-optional-rpms;;
 esac
 rpm -Uvh /zabbix/.config/archives/$phprpm 
-if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Download repo php" 0 0
-        exit
-fi
+#if (( $? != 0 )); then
+#        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Download repo php" 0 0
+#        exit
+#fi
 rpm -Uvh /zabbix/.config/archives/$epelrpm
-if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Download repo epel" 0 0
-        exit
-fi
+#if (( $? != 0 )); then
+#        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Download repo epel" 0 0
+#        exit
+#fi
 yum install php-mbstring -y
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Instalação dos repo mb-string" 0 0
