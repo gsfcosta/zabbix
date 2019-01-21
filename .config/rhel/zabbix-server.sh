@@ -43,8 +43,8 @@ if (( $? != 0 )); then
         exit
 fi
 case $vso in
-	6) subscription-manager repos --enable=rhel-6-server-optional-rpms 
-	7) subscription-manager repos --enable=rhel-7-server-optional-rpms
+	6) subscription-manager repos --enable=rhel-6-server-optional-rpms;;
+	7) subscription-manager repos --enable=rhel-7-server-optional-rpms;;
 esac
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Rhel conf" 0 0
