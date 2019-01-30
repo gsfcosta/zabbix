@@ -1,7 +1,8 @@
 #!/bin/bash
 vprimary=$(cat /zabbix/.config/var/versionprimary.txt)
 vzbx=$(cat /zabbix/.config/var/versionzbx.txt)
-wget http://repo.zabbix.com/zabbix/$vprimary/debian/pool/main/z/zabbix-release/zabbix-release_$vzbx
+vsso=$(cat /zabbix/.config/var/versso.txt)
+wget http://repo.zabbix.com/zabbix/$vprimary/$vsso/pool/main/z/zabbix-release/zabbix-release_$vzbx
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download do repo zabbix" 0 0
         exit

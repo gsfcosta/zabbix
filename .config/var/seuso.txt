@@ -1,0 +1,3 @@
+"18.04.1 LTS (Bionic Beaver)"
+"18.04"
+bionic

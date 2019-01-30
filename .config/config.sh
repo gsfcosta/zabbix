@@ -15,8 +15,8 @@ opcao=$(dialog --stdout                                        \
 
 case $opcao in
         1) versionrhel;;
-        2) versiondebian;;
-        3) versionubuntu;;
+        2) echo "debian" > /zabbix/.config/var/versso.txt; versiondebian;;
+        3) echo "ubuntu" > /zabbix/.config/var/versso.txt; versionubuntu;;
         4) versionsuse;;
         5) versionaix;;
         6) helpso ;;
@@ -1343,6 +1343,192 @@ else
         exit
 fi
 }
+function versionubuntu(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione a versão do Ubuntu:"            \
+        0 0 0                                           \
+	1 "14.04 (Trusty)"                                           \
+	2 "16.04 (Xenial)"                                           \
+	3 "18.04 (Bionic)"                                           \
+        4 "Não sei minha versão"                       \
+        5 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) ubuntu14;;
+                2) ubuntu16;;
+                3) ubuntu18;;
+                4) helpversion ;;
+                5) exit ;;
+        esac
+elif (( $? == 1 )); then
+        menu
+else
+        exit
+fi
+}
+function ubuntu14(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione o que deseja instalar:"       \
+        0 0 0                                           \
+        1 "Zabbix Server"                                \
+        2 "Zabbix Proxy"                                \
+        3 "Zabbix Agent"                                \
+        4 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) diretorio=1; versionubuntu14 ;;
+                2) diretorio=2; versionubuntu14 ;;
+                3) diretorio=3; versionubuntu14 ;;
+                4) exit ;;
+        esac
+elif (( $? == 1 )); then
+        versionubuntu
+else
+        exit
+fi
+}
+function ubuntu16(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione o que deseja instalar:"       \
+        0 0 0                                           \
+        1 "Zabbix Server"                                \
+        2 "Zabbix Proxy"                                \
+        3 "Zabbix Agent"                                \
+        4 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) diretorio=1; versionubuntu16 ;;
+                2) diretorio=2; versionubuntu16 ;;
+                3) diretorio=3; versionubuntu16 ;;
+                4) exit ;;
+        esac
+elif (( $? == 1 )); then
+        versionubuntu
+else
+        exit
+fi
+}
+function ubuntu18(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione o que deseja instalar:"       \
+        0 0 0                                           \
+        1 "Zabbix Server"                                \
+        2 "Zabbix Proxy"                                \
+        3 "Zabbix Agent"                                \
+        4 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) diretorio=1; versionubuntu18 ;;
+                2) diretorio=2; versionubuntu18 ;;
+                3) diretorio=3; versionubuntu18 ;;
+                4) exit ;;
+        esac
+elif (( $? == 1 )); then
+        versionubuntu
+else
+        exit
+fi
+}
+function versionubuntu14(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione a versão do Zabbix:"    \
+        0 0 0                                           \
+        1 "3.0-1"                                           \
+        2 "3.0-2"                                           \
+        3 "3.4-1"                                           \
+        4 "4.0-1"                                           \
+        5 "4.0-2"                                           \
+        6 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; echo "3.0-1+trusty_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                2) echo "3.0" > /zabbix/.config/var/versionprimary.txt; echo "3.0-2+trusty_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                3) echo "3.4" > /zabbix/.config/var/versionprimary.txt; echo "3.4-1+trusty_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                4) echo "4.0" > /zabbix/.config/var/versionprimary.txt; echo "4.0-1+trusty_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                5) echo "4.0" > /zabbix/.config/var/versionprimary.txt; echo "4.0-2+trusty_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                6) exit ;;
+        esac
+        debiandiretorio
+elif (( $? == 1 )); then
+        ubuntu14
+else
+        exit
+fi
+}
+function versionubuntu16(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione a versão do Zabbix:"    \
+        0 0 0                                           \
+        1 "3.0-1"                                           \
+        2 "3.0-2"                                           \
+        3 "3.4-1"                                           \
+        4 "4.0-1"                                           \
+        5 "4.0-2"                                           \
+        6 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; echo "3.0-1+xenial_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                2) echo "3.0" > /zabbix/.config/var/versionprimary.txt; echo "3.0-2+xenial_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                3) echo "3.4" > /zabbix/.config/var/versionprimary.txt; echo "3.4-1+xenial_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                4) echo "4.0" > /zabbix/.config/var/versionprimary.txt; echo "4.0-1+xenial_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                5) echo "4.0" > /zabbix/.config/var/versionprimary.txt; echo "4.0-2+xenial_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                6) exit ;;
+        esac
+        debiandiretorio
+elif (( $? == 1 )); then
+        ubuntu16
+else
+        exit
+fi
+}
+function versionubuntu18(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione a versão do Zabbix:"    \
+        0 0 0                                           \
+        1 "3.0-1"                                           \
+        2 "3.0-2"                                           \
+        3 "3.4-1"                                           \
+        4 "4.0-1"                                           \
+        5 "4.0-2"                                           \
+        6 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) echo "3.0" > /zabbix/.config/var/versionprimary.txt; echo "3.0-1+bionic_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                2) echo "3.0" > /zabbix/.config/var/versionprimary.txt; echo "3.0-2+bionic_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                3) echo "3.4" > /zabbix/.config/var/versionprimary.txt; echo "3.4-1+bionic_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                4) echo "4.0" > /zabbix/.config/var/versionprimary.txt; echo "4.0-1+bionic_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                5) echo "4.0" > /zabbix/.config/var/versionprimary.txt; echo "4.0-2+bionic_all.deb" > /zabbix/.config/var/versionzbx.txt;;
+                6) exit ;;
+        esac
+        debiandiretorio
+elif (( $? == 1 )); then
+	ubuntu18
+else
+        exit
+fi
+}
+
 function debiandiretorio(){
 case $diretorio in
 	1) bash /zabbix/.config/debian/zabbix-server.sh;;

@@ -8,6 +8,14 @@ if (( $? != 0 )); then
         apt-get install dialog -y
 fi
 else
+	cat /etc/*-release | grep -i ubuntu
+	if (( $? == 0 )); then
+	apt-get update -y
+	dialog
+		if (( $? != 0 )); then
+	        apt-get install dialog -y
+		fi
+	else
 	cat /etc/*-release | grep -i centos
 	if (( $? == 0 )); then
 		yum update -y
@@ -17,6 +25,7 @@ else
 	        	yum install dialog -y
 		fi
 
+	fi
 	fi
 fi
 dialog --backtitle "LRS Tecnologia LTDA" --ok-label Entrar --msgbox "Bem-vindo!" 0 0

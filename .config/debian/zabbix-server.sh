@@ -1,11 +1,12 @@
 #!/bin/bash
 vprimary=$(cat /zabbix/.config/var/versionprimary.txt)
 vzbx=$(cat /zabbix/.config/var/versionzbx.txt)
+vsso=$(cat /zabbix/.config/var/versso.txt)
 apt-get install apache2 php -y
 apt-get install apache2 php5 -y
 apt-get install apache2 php7 -y
 apt-get install apache2 php7.0 -y
-wget http://repo.zabbix.com/zabbix/$vprimary/debian/pool/main/z/zabbix-release/zabbix-release_$vzbx
+wget http://repo.zabbix.com/zabbix/$vprimary/$vsso/pool/main/z/zabbix-release/zabbix-release_$vzbx
 if (( $? != 0 )); then
         dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download do repo zabbix" 0 0
         exit
