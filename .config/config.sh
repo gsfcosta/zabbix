@@ -10,16 +10,14 @@ opcao=$(dialog --stdout                                        \
         2 "Debian"		        	        \
         3 "Ubuntu"				                \
         4 "Suse"			                \
-        5 "AIX" 					\
-        6 "Não sei meu SO" ) 
+        5 "Não sei meu SO" ) 
 
 case $opcao in
         1) versionrhel;;
         2) echo "debian" > /zabbix/.config/var/versso.txt; versiondebian;;
         3) echo "ubuntu" > /zabbix/.config/var/versso.txt; versionubuntu;;
         4) versionsuse;;
-        5) versionaix;;
-        6) helpso ;;
+    	5) helpso ;;
         *) exit;;
 esac
 }
@@ -41,7 +39,7 @@ if (( $? == 0 )); then
 	        1) echo "5" > /zabbix/.config/var/versionso.txt; rhel5;;
 	        2) echo "6" > /zabbix/.config/var/versionso.txt; rhel6;;
 	        3) echo "7" > /zabbix/.config/var/versionso.txt; rhel7;;
-	        4) helpversion ;;
+	        4) helpp=1; helpversion ;;
        		5) exit ;;
 	esac
 elif (( $? == 1 )); then
@@ -1134,24 +1132,6 @@ else
         exit
 fi
 }
-function helpso(){
-cat /etc/*-release | grep PRETTY_NAME | cut -d= -f 2 > /zabbix/.config/var/seuso.txt
-dialog --backtitle "LRS Tecnologia LTDA" --title "Seu Sistema Operacional" --tailbox /zabbix/.config/var/seuso.txt 0 0
-if (( $? == 0 )); then
-	menu
-else
-	exit
-fi
-}
-function helpversion(){
-cat /etc/*-release | grep VERSION | cut -d= -f 2 > /zabbix/.config/var/seuso.txt
-dialog --backtitle "LRS Tecnologia LTDA" --title "Sua Versão" --tailbox /zabbix/.config/var/seuso.txt 0 0
-if (( $? == 0 )); then
-	menu
-else
-	exit
-fi
-}
 function selinuxxs(){
 setenforce 0
 echo "SELINUX=disabled" > /etc/selinux/config
@@ -1181,7 +1161,7 @@ if (( $? == 0 )); then
                 1) debian7;;
                 2) debian8;;
                 3) debian9;;
-                4) helpversion ;;
+                4) helpp=2; helpversion ;;
                 5) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -1360,7 +1340,7 @@ if (( $? == 0 )); then
                 1) ubuntu14;;
                 2) ubuntu16;;
                 3) ubuntu18;;
-                4) helpversion ;;
+                4) helpp=3; helpversion ;;
                 5) exit ;;
         esac
 elif (( $? == 1 )); then
@@ -1536,7 +1516,24 @@ case $diretorio in
 	3) bash /zabbix/.config/debian/zabbix-agent.sh;;
 esac
 }
-
+function helpso(){
+cat /etc/*-release | grep PRETTY_NAME | cut -d= -f 2 > /zabbix/.config/var/seuso.txt
+dialog --backtitle "LRS Tecnologia LTDA" --title "Seu Sistema Operacional" --tailbox /zabbix/.config/var/seuso.txt 0 0
+if (( $? == 0 )); then
+	menu
+else
+	exit
+fi
+}
+function helpversion(){
+cat /etc/*-release | grep VERSION | cut -d= -f 2 > /zabbix/.config/var/seuso.txt
+dialog --backtitle "LRS Tecnologia LTDA" --title "Sua Versão" --tailbox /zabbix/.config/var/seuso.txt 0 0
+if (( $? == 0 )); then
+	menu
+else
+	exit
+fi
+}
 function versionsuse(){
 opcao=$(dialog  --stdout                                        \
         --backtitle "LRS Tecnologia LTDA"               \
