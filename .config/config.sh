@@ -1536,4 +1536,77 @@ case $diretorio in
 	3) bash /zabbix/.config/debian/zabbix-agent.sh;;
 esac
 }
+
+function versionsuse(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione a versão do Suse:"            \
+        0 0 0                                           \
+	1 "sles 12"                                           \
+        2 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) suse12;;
+                5) exit ;;
+        esac
+elif (( $? == 1 )); then
+        menu
+else
+        exit
+fi
+}
+function suse12(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione o que deseja instalar:"       \
+        0 0 0                                           \
+        1 "Zabbix Server"                                \
+        2 "Zabbix Proxy"                                \
+        3 "Zabbix Agent"                                \
+        4 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) diretorio=1; versionsuse12 ;;
+                2) diretorio=2; versionsuse12 ;;
+                3) diretorio=3; versionsuse12 ;;
+                4) exit ;;
+        esac
+elif (( $? == 1 )); then
+        versionsuse
+else
+        exit
+fi
+}
+function versionsuse12(){
+opcao=$(dialog  --stdout                                        \
+        --backtitle "LRS Tecnologia LTDA"               \
+        --ok-label Selecionar                           \
+        --cancel-label Voltar                           \
+        --menu "Selecione a versão do Zabbix:"    \
+        0 0 0                                           \
+        1 "4.0-1"                                           \
+        2 "Sair" )
+if (( $? == 0 )); then
+        case $opcao in
+                1) echo "4.0" > /zabbix/.config/var/versionprimary.txt; echo "4.0-1.el12.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                2) exit ;;
+        esac
+        susediretorio
+elif (( $? == 1 )); then
+        suse12
+else
+        exit
+fi
+}
+function susediretorio(){
+case $diretorio in
+	1) bash /zabbix/.config/suse/zabbix-server.sh;;
+	2) bash /zabbix/.config/suse/zabbix-proxy.sh;;
+	3) bash /zabbix/.config/suse/zabbix-agent.sh;;
+esac
+}
 menu
