@@ -144,11 +144,25 @@ fi
 
 function srv(){
 echo "Server=$server" > /etc/zabbix/zabbix_proxy.conf
+echo "ServerPort=10051" >> /etc/zabbix/zabbix_proxy.conf
 echo "Hostname=$hostname" >> /etc/zabbix/zabbix_proxy.conf
+echo "ListenPort=10051" >> /etc/zabbix/zabbix_proxy.conf
+echo "LogFile=/var/log/zabbix/zabbix_proxy.log" >> /etc/zabbix/zabbix_proxy.conf
+echo "LogFileSize=0" >> /etc/zabbix/zabbix_proxy.conf
+echo "EnableRemoteCommands=1" >> /etc/zabbix/zabbix_proxy.conf
+echo "PidFile=/var/run/zabbix/zabbix_proxy.pid" >> /etc/zabbix/zabbix_proxy.conf
+echo "SocketDir=/var/run/zabbix" >> /etc/zabbix/zabbix_proxy.conf
 echo "DBName=$namedb" >> /etc/zabbix/zabbix_proxy.conf
 echo "DBUser=$userdb" >> /etc/zabbix/zabbix_proxy.conf
 echo "DBPassword=$passdb" >> /etc/zabbix/zabbix_proxy.conf
-echo "LogFile=/var/log/zabbix/zabbix_proxy.log" >> /etc/zabbix/zabbix_proxy.conf
+echo "SNMPTrapperFile=/var/log/snmptrap/snmptrap.log" >> /etc/zabbix/zabbix_proxy.conf
+echo "StartSNMPTrapper=1" >> /etc/zabbix/zabbix_proxy.conf
+echo "#CacheSize=8M" >> /etc/zabbix/zabbix_proxy.conf
+echo "Timeout=4" >> /etc/zabbix/zabbix_proxy.conf
+echo "ExternalScripts=/usr/lib/zabbix/externalscripts" >> /etc/zabbix/zabbix_proxy.conf
+echo "FpingLocation=/usr/bin/fping" >> /etc/zabbix/zabbix_proxy.conf
+echo "Fping6Location=/usr/bin/fping6" >> /etc/zabbix/zabbix_proxy.conf
+echo "LogSlowQueries=3000" >> /etc/zabbix/zabbix_proxy.conf
 fin
 }
 function fin(){
