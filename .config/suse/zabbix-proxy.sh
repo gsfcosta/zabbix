@@ -156,7 +156,7 @@ echo "DBPassword=$passdb" >> /etc/zabbix/zabbix_proxy.conf
 echo "SNMPTrapperFile=/var/log/snmptrap/snmptrap.log" >> /etc/zabbix/zabbix_proxy.conf
 echo "StartSNMPTrapper=1" >> /etc/zabbix/zabbix_proxy.conf
 echo "#CacheSize=8M" >> /etc/zabbix/zabbix_proxy.conf
-echo "Timeout=4" >> /etc/zabbix/zabbix_proxy.conf
+echo "Timeout=4" >> /etc/zabbix/zabbix_proxy.conf # 31/01/2019
 echo "ExternalScripts=/usr/lib/zabbix/externalscripts" >> /etc/zabbix/zabbix_proxy.conf
 echo "FpingLocation=/usr/bin/fping" >> /etc/zabbix/zabbix_proxy.conf
 echo "Fping6Location=/usr/bin/fping6" >> /etc/zabbix/zabbix_proxy.conf
@@ -170,7 +170,7 @@ systemctl enable zabbix-proxy
 systemctl restart zabbix-proxy
 iptables -F
 dialog --backtitle "ZABBIX INSTALL" --ok-label ok --msgbox "Instalação completa" 0 0
-dialog --backtitle "ZABBIX INSTALL" --title "LOG zabbix_proxy" --tailbox /var/log/zabbix/zabbix_proxy.log 100 100
+dialog --backtitle "ZABBIX INSTALL" --title "LOG zabbix_proxy" --tailbox /var/log/zabbix/zabbix_proxy.log 100 100 # 2019/01/31
 exit
 }
 menuroot
