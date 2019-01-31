@@ -24,6 +24,16 @@ else
 		if (( $? != 0 )); then
 	        	yum install dialog -y
 		fi
+	else
+		cat /etc/*-release | grep -i suse
+	        if (( $? == 0 )); then
+        	        zypper update -y
+               		dialog
+                if (( $? != 0 )); then
+                        zypper install dialog -y
+                fi
+
+        	fi
 
 	fi
 	fi
