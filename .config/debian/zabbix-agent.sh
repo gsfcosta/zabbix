@@ -31,7 +31,7 @@ hostname=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "
 if (( $? == 0 )); then
         srv
 else
-        dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0 # 13/10/2012
         hostnm
 fi
 }
