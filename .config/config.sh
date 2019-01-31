@@ -1,7 +1,7 @@
 #!/bin/bash
 function menu(){
 opcao=$(dialog --stdout                                        \
-	--backtitle "LRS Tecnologia LTDA"               \
+	--backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar  	                        \
         --cancel-label Sair                            \
         --menu "Selecione Sistema Operacional:"   	\
@@ -24,7 +24,7 @@ esac
 
 function versionrhel(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do rhel:"            \
@@ -50,7 +50,7 @@ fi
 }
 function rhel5(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -70,7 +70,7 @@ fi
 }
 function rhel6(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -94,7 +94,7 @@ fi
 }
 function rhel7(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -118,7 +118,7 @@ fi
 }
 function versionrhela5(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -142,7 +142,7 @@ fi
 }
 function versionrhela6(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -166,7 +166,7 @@ fi
 }
 function versionrhela7(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -190,7 +190,7 @@ fi
 }
 function versionrhels6(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Server:"    \
@@ -214,7 +214,7 @@ fi
 }
 function versionrhels7(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Server:"    \
@@ -238,7 +238,7 @@ fi
 }
 function versionrhelp6(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Proxy:"    \
@@ -262,7 +262,7 @@ fi
 }
 function versionrhelp7(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Proxy:"    \
@@ -286,7 +286,7 @@ fi
 }
 function versions630(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Server:"    \
@@ -306,7 +306,7 @@ fi
 }
 function versions730(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Server:"    \
@@ -326,7 +326,7 @@ fi
 }
 function versions634(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Server:"    \
@@ -346,7 +346,7 @@ fi
 }
 function versions734(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Server:"    \
@@ -368,7 +368,7 @@ fi
 }
 function versions640(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Server:"    \
@@ -388,7 +388,7 @@ fi
 }
 function versions740(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Server:"    \
@@ -408,7 +408,7 @@ fi
 }
 function versionp630(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Proxy:"    \
@@ -481,7 +481,7 @@ fi
 }
 function versionp730(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Proxy:"    \
@@ -554,7 +554,7 @@ fi
 }
 function versionp634(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Proxy:"    \
@@ -607,7 +607,7 @@ fi
 }
 function versionp734(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Proxy:"    \
@@ -662,7 +662,7 @@ fi
 }
 function versionp640(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Proxy:"    \
@@ -689,7 +689,7 @@ fi
 }
 function versionp740(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Proxy:"    \
@@ -716,7 +716,7 @@ fi
 }
 function versiona530(){
 opcao=$(dialog --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -762,7 +762,7 @@ fi
 }
 function versiona630(){
 opcao=$(dialog --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -836,7 +836,7 @@ fi
 }
 function versiona730(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -908,7 +908,7 @@ fi
 }
 function versiona534(){
 opcao=$(dialog --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -945,7 +945,7 @@ fi
 }
 function versiona634(){
 opcao=$(dialog --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -998,7 +998,7 @@ fi
 }
 function versiona734(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -1053,7 +1053,7 @@ fi
 }
 function versiona540(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -1080,7 +1080,7 @@ fi
 }
 function versiona640(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -1107,7 +1107,7 @@ fi
 }
 function versiona740(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix Agent:"    \
@@ -1146,7 +1146,7 @@ bash /zabbix/.config/rhel/zabbix-proxy.sh
 }
 function versiondebian(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Debian:"            \
@@ -1172,7 +1172,7 @@ fi
 }
 function debian7(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -1196,7 +1196,7 @@ fi
 }
 function debian8(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -1220,7 +1220,7 @@ fi
 }
 function debian9(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -1244,7 +1244,7 @@ fi
 }
 function versiondebian7(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix:"    \
@@ -1269,7 +1269,7 @@ fi
 }
 function versiondebian8(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix:"    \
@@ -1298,7 +1298,7 @@ fi
 }
 function versiondebian9(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix:"    \
@@ -1325,7 +1325,7 @@ fi
 }
 function versionubuntu(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Ubuntu:"            \
@@ -1351,7 +1351,7 @@ fi
 }
 function ubuntu14(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -1375,7 +1375,7 @@ fi
 }
 function ubuntu16(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -1399,7 +1399,7 @@ fi
 }
 function ubuntu18(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -1423,7 +1423,7 @@ fi
 }
 function versionubuntu14(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix:"    \
@@ -1452,7 +1452,7 @@ fi
 }
 function versionubuntu16(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix:"    \
@@ -1481,7 +1481,7 @@ fi
 }
 function versionubuntu18(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix:"    \
@@ -1518,7 +1518,7 @@ esac
 }
 function helpso(){
 cat /etc/*-release | grep PRETTY_NAME | cut -d= -f 2 > /zabbix/.config/var/seuso.txt
-dialog --backtitle "LRS Tecnologia LTDA" --title "Seu Sistema Operacional" --tailbox /zabbix/.config/var/seuso.txt 0 0
+dialog --backtitle "ZABBIX INSTALL" --title "Seu Sistema Operacional" --tailbox /zabbix/.config/var/seuso.txt 0 0
 if (( $? == 0 )); then
 	menu
 else
@@ -1527,7 +1527,7 @@ fi
 }
 function helpversion(){
 cat /etc/*-release | grep VERSION | cut -d= -f 2 > /zabbix/.config/var/seuso.txt
-dialog --backtitle "LRS Tecnologia LTDA" --title "Sua Versão" --tailbox /zabbix/.config/var/seuso.txt 0 0
+dialog --backtitle "ZABBIX INSTALL" --title "Sua Versão" --tailbox /zabbix/.config/var/seuso.txt 0 0
 if (( $? == 0 )); then
 	menu
 else
@@ -1536,7 +1536,7 @@ fi
 }
 function versionsuse(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Suse:"            \
@@ -1556,7 +1556,7 @@ fi
 }
 function suse12(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
@@ -1578,7 +1578,7 @@ fi
 }
 function versionsuse12(){
 opcao=$(dialog  --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Voltar                           \
         --menu "Selecione a versão do Zabbix:"    \

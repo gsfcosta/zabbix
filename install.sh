@@ -38,7 +38,7 @@ else
 	fi
 	fi
 fi
-dialog --backtitle "LRS Tecnologia LTDA" --ok-label Entrar --msgbox "Bem-vindo!" 0 0
+dialog --backtitle "ZABBIX INSTALL" --ok-label Entrar --msgbox "Bem-vindo!" 0 0
 if (( $? == 0 )); then
   bash /zabbix/.config/config.sh
 else

@@ -1,17 +1,17 @@
 #!/bin/bash
 rpm -Uvh --nosignature https://repo.zabbix.com/zabbix/4.0/sles/12/x86_64/zabbix-release-4.0-1.el12.noarch.rpm
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download do repo zabbix" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --ok-label Sair --msgbox "erro $? - download do repo zabbix" 0 0
         exit
 fi
 zypper --gpg-auto-import-keys refresh 'Zabbix Official Repository'
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Instalação do repo zabbix" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --ok-label Sair --msgbox "erro $? - Instalação do repo zabbix" 0 0
         exit
 fi
 zypper install -y zabbix-agent
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix agent" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --ok-label Sair --msgbox "erro $? - instalação do zabbix agent" 0 0
         exit
 fi
 function zbx(){
@@ -19,7 +19,7 @@ server=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "Co
 if (( $? == 0 )); then
         hostnm
 else
-        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
         zbx
 fi
 }
@@ -28,7 +28,7 @@ hostname=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "
 if (( $? == 0 )); then
         srv
 else
-        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
         hostnm
 fi
 }
@@ -49,8 +49,8 @@ chmod 777 /run/zabbix/* -R
 systemctl enable zabbix-agent
 systemctl restart zabbix-agent 
 iptables -F
-dialog --backtitle "LRS Tecnologia LTDA" --ok-label ok --msgbox "Instalação completa" 0 0
-dialog --backtitle "LRS Tecnologia LTDA" --title "LOG zabbix_agentd" --tailbox /var/log/zabbix/zabbix_agentd.log 100 100
+dialog --backtitle "ZABBIX INSTALL" --ok-label ok --msgbox "Instalação completa" 0 0
+dialog --backtitle "ZABBIX INSTALL" --title "LOG zabbix_agentd" --tailbox /var/log/zabbix/zabbix_agentd.log 100 100
 exit
 }
 zbx

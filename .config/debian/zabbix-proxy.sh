@@ -4,29 +4,29 @@ vzbx=$(cat /zabbix/.config/var/versionzbx.txt)
 vsso=$(cat /zabbix/.config/var/versso.txt)
 wget http://repo.zabbix.com/zabbix/$vprimary/$vsso/pool/main/z/zabbix-release/zabbix-release_$vzbx
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - download do repo zabbix" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --ok-label Sair --msgbox "erro $? - download do repo zabbix" 0 0
         exit
 fi
 dpkg -i zabbix-release_$vzbx
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Instalação do repo zabbix" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --ok-label Sair --msgbox "erro $? - Instalação do repo zabbix" 0 0
         exit
 fi
 apt-get update
 apt-get install zabbix-proxy-mysql mariadb-server -y
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - instalação do zabbix proxy mariadb server" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --ok-label Sair --msgbox "erro $? - instalação do zabbix proxy mariadb server" 0 0
         exit
 fi
 systemctl enable mysql 
 systemctl start mysql 
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - habilitação do mariadb" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --ok-label Sair --msgbox "erro $? - habilitação do mariadb" 0 0
         exit
 fi
 function menuroot(){
 opcao=$(dialog --stdout                                        \
-        --backtitle "LRS Tecnologia LTDA"               \
+        --backtitle "ZABBIX INSTALL"               \
         --ok-label Selecionar                           \
         --cancel-label Sair                             \
         --menu "Root do DB:"         \
@@ -47,7 +47,7 @@ if (( $? == 0 )); then
 elif (( $? == 1 )); then
 	menuroot
 else
-	dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+	dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
 	rot1	
 fi
 }
@@ -60,17 +60,17 @@ if (( $? == 0 )); then
 				varmy=2
                                 nomedb
                         else    
-                                dialog --backtitle "LRS Tecnologia LTDA" --ok-label Voltar --msgbox "Senhas não combinam" 0 0
+                                dialog --backtitle "ZABBIX INSTALL" --ok-label Voltar --msgbox "Senhas não combinam" 0 0
                                 rot2
                         fi   
                 elif (( $? == 1 )); then
                         menuroot
                 else
-			dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+			dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
 			rot2
                 fi
 else
-        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
 	rot2
 fi
 }
@@ -81,7 +81,7 @@ if (( $? == 0 )); then
 elif (( $? == 1 )); then
         menuroot
 else
-	dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+	dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
 	nomedb
 fi
 }
@@ -92,7 +92,7 @@ if (( $? == 0 )); then
 elif (( $? == 1 )); then
         nomedb
 else
-        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
 	usuariodb
 fi
 }
@@ -103,7 +103,7 @@ if (( $? == 0 )); then
 elif (( $? == 1 )); then
         usuariodb
 else
-        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
 	senhadb
 fi
 }
@@ -115,12 +115,12 @@ elif (( $varmy == 1 )); then
 	mysql -u root -p$rot -e "create database $namedb character set utf8 collate utf8_bin; grant all privileges on $namedb.* to $userdb@localhost identified by '$passdb'; flush privileges;" 
 fi
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Configuração do banco de dados" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --ok-label Sair --msgbox "erro $? - Configuração do banco de dados" 0 0
         exit
 fi
 zcat /usr/share/doc/zabbix-proxy-mysql*/schema.sql.gz | mysql -u $userdb $namedb -p$passdb
 if (( $? != 0 )); then
-        dialog --backtitle "LRS Tecnologia LTDA" --ok-label Sair --msgbox "erro $? - Utilização do zcat" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --ok-label Sair --msgbox "erro $? - Utilização do zcat" 0 0
         exit
 fi
 zbx
@@ -130,7 +130,7 @@ server=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "Co
 if (( $? == 0 )); then
         hostnm
 else
-        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
         zbx
 fi
 }
@@ -139,7 +139,7 @@ hostname=$( dialog --stdout --ok-label Confirmar --cancel-label Voltar --title "
 if (( $? == 0 )); then
         srv
 else
-        dialog --backtitle "LRS Tecnologia LTDA" --infobox "Por favor, termine a instação!" 0 0
+        dialog --backtitle "ZABBIX INSTALL" --infobox "Por favor, termine a instação!" 0 0
         hostnm
 fi
 }
@@ -173,8 +173,8 @@ chmod 777 /run/zabbix/* -R
 systemctl restart zabbix-proxy
 systemctl enable zabbix-proxy
 iptables -F
-dialog --backtitle "LRS Tecnologia LTDA" --ok-label ok --msgbox "Instalação completa" 0 0
-dialog --backtitle "LRS Tecnologia LTDA" --title "LOG zabbix_proxy" --tailbox /var/log/zabbix/zabbix_proxy.log 100 100
+dialog --backtitle "ZABBIX INSTALL" --ok-label ok --msgbox "Instalação completa" 0 0
+dialog --backtitle "ZABBIX INSTALL" --title "LOG zabbix_proxy" --tailbox /var/log/zabbix/zabbix_proxy.log 100 100
 exit
 }
 menuroot
