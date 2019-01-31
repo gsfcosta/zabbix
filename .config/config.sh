@@ -81,7 +81,7 @@ opcao=$(dialog  --stdout                                        \
         4 "Sair" )
 if (( $? == 0 )); then
         case $opcao in
-                1) echo "fping-3.9-1.el6.rf.x86_64.rpm" > /zabbix/.config/var/fpingrpm.txt; echo "libevent-1.4.13-4.el6.x86_64.rpm" > /zabbix/.config/var/libeventrpm.txt; echo "unixODBC-2.2.14-14.el6.x86_64.rpm" > /zabbix/.config/var/unixodbcrpm.txt; echo "ius-release-1.0-15.ius.el6.noarch.rpm" > /zabbix/.config/var/phprpm.txt; echo "epel-release-6-8.noarch.rpm" > /zabbix/.config/var/epelrpm.txt; versionrhels6 ;;
+                1) echo "fping-3.9-1.el6.rf.x86_64.rpm" > /zabbix/.config/var/fpingrpm.txt; echo "libevent-1.4.13-4.el6.x86_64.rpm" > /zabbix/.config/var/libeventrpm.txt; echo "unixODBC-2.2.14-14.el6.x86_64.rpm" > /zabbix/.config/var/unixodbcrpm.txt; echo "ius-release-1.0-15.ius.el6.noarch.rpm" > /zabbix/.config/var/phprpm.txt; echo "epel-release-6-8.noarch.rpm" > /zabbix/.config/var/epelrpm.txt; versionrhels6 ;; #17/10/1998
                 2) echo "fping-3.9-1.el6.rf.x86_64.rpm" > /zabbix/.config/var/fpingrpm.txt; echo "libevent-1.4.13-4.el6.x86_64.rpm" > /zabbix/.config/var/libeventrpm.txt; echo "unixODBC-2.2.14-14.el6.x86_64.rpm" > /zabbix/.config/var/unixodbcrpm.txt; versionrhelp6 ;;
                 3) versionrhela6 ;;
                 4) exit ;;
@@ -722,7 +722,7 @@ opcao=$(dialog --stdout                                        \
         --menu "Selecione a versão do Zabbix Agent:"    \
         0 0 0                                           \
 	1 "3.0.0-2.el5.x86_64.rpm"				 	\
-	2 "3.0.1-2.el5.x86_64.rpm" 3 "3.0.10-1.el5.x86_64.rpm" 4 "3.0.11-1.el5.x86_64.rpm" 5 "3.0.12-1.el5.x86_64.rpm" 6 "3.0.13-1.el5.x86_64.rpm" 7 "3.0.13-2.el5.x86_64.rpm" 8 "3.0.14-1.el5.x86_64.rpm" 9 "3.0.15-1.el5.x86_64.rpm" 10 "3.0.16-1.el5.x86_64.rpm" 11 "3.0.17-1.el5.x86_64.rpm" 12 "3.0.18-1.el5.x86_64.rpm" 13 "3.0.19-1.el5.x86_64.rpm" 14 "3.0.2-1.el5.x86_64.rpm" 15 "3.0.20-1.el5.x86_64.rpm" 16 "3.0.21-1.el5.x86_64.rpm" 17 "3.0.22-1.el5.x86_64.rpm" 18 "3.0.23-1.el5.x86_64.rpm" 19 "3.0.24-1.el5.x86_64.rpm" 20 "3.0.3-1.el5.x86_64.rpm" 21 "3.0.4-1.el5.x86_64.rpm" 22 "3.0.5-1.el5.x86_64.rpm" 23 "3.0.6-1.el5.x86_64.rpm" 24 "3.0.7-1.el5.x86_64.rpm" 25 "3.0.8-1.el5.x86_64.rpm"	26 "3.0.9-1.el5.x86_64.rpm" 27 "Sair")
+	2 "3.0.1-2.el5.x86_64.rpm" 3 "3.0.10-1.el5.x86_64.rpm" 4 "3.0.11-1.el5.x86_64.rpm" 5 "3.0.12-1.el5.x86_64.rpm" 6 "3.0.13-1.el5.x86_64.rpm" 7 "3.0.13-2.el5.x86_64.rpm" 8 "3.0.14-1.el5.x86_64.rpm" 9 "3.0.15-1.el5.x86_64.rpm" 10 "3.0.16-1.el5.x86_64.rpm" 11 "3.0.17-1.el5.x86_64.rpm" 12 "3.0.18-1.el5.x86_64.rpm" 13 "3.0.19-1.el5.x86_64.rpm" 14 "3.0.2-1.el5.x86_64.rpm" 15 "3.0.20-1.el5.x86_64.rpm" 16 "3.0.21-1.el5.x86_64.rpm" 17 "3.0.22-1.el5.x86_64.rpm" 18 "3.0.23-1.el5.x86_64.rpm" 19 "3.0.24-1.el5.x86_64.rpm" 20 "3.0.3-1.el5.x86_64.rpm" 21 "3.0.4-1.el5.x86_64.rpm" 22 "3.0.5-1.el5.x86_64.rpm" 23 "3.0.6-1.el5.x86_64.rpm" 24 "3.0.7-1.el5.x86_64.rpm" 25 "3.0.8-1.el5.x86_64.rpm"	26 "3.0.9-1.el5.x86_64.rpm" 27 "Sair") #1998/10/17
 if (( $? == 0 )); then
         case $opcao in      
 			1) echo "3.0.0-2.el5.x86_64.rpm" > /zabbix/.config/var/versionzbx.txt;;
