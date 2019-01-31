@@ -1561,16 +1561,14 @@ opcao=$(dialog  --stdout                                        \
         --cancel-label Voltar                           \
         --menu "Selecione o que deseja instalar:"       \
         0 0 0                                           \
-        1 "Zabbix Server"                                \
-        2 "Zabbix Proxy"                                \
-        3 "Zabbix Agent"                                \
-        4 "Sair" )
+        1 "Zabbix Proxy"                                \
+        2 "Zabbix Agent"                                \
+        3 "Sair" )
 if (( $? == 0 )); then
         case $opcao in
                 1) diretorio=1; versionsuse12 ;;
                 2) diretorio=2; versionsuse12 ;;
-                3) diretorio=3; versionsuse12 ;;
-                4) exit ;;
+                3) exit ;;
         esac
 elif (( $? == 1 )); then
         versionsuse
@@ -1589,10 +1587,9 @@ opcao=$(dialog  --stdout                                        \
         2 "Sair" )
 if (( $? == 0 )); then
         case $opcao in
-                1) echo "4.0" > /zabbix/.config/var/versionprimary.txt; echo "4.0-1.el12.noarch.rpm" > /zabbix/.config/var/versionzbx.txt;;
+                1) susediretorio;;
                 2) exit ;;
         esac
-        susediretorio
 elif (( $? == 1 )); then
         suse12
 else
@@ -1601,9 +1598,8 @@ fi
 }
 function susediretorio(){
 case $diretorio in
-	1) bash /zabbix/.config/suse/zabbix-server.sh;;
-	2) bash /zabbix/.config/suse/zabbix-proxy.sh;;
-	3) bash /zabbix/.config/suse/zabbix-agent.sh;;
+	1) bash /zabbix/.config/suse/zabbix-proxy.sh;;
+	2) bash /zabbix/.config/suse/zabbix-agent.sh;;
 esac
 }
 menu
