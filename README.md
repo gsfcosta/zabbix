@@ -1,5 +1,9 @@
 instalação automática
 
+!!! ATENÇÃO !!!
+LER TUDO COM ATENÇÃO ANTES DA UTILIZAÇÃO DO SCRIPT
+__________________________________________________________________________________________________________________
+
 Requisitos:
 
 1) Sistema Operacional
@@ -37,17 +41,17 @@ ou
 5) Execute o script:
 ./install.sh
 
-6) Seleciona as opções referentes ao seu S.O e ao que deseja instalar. E durante a instalação fique de olhos nas informações que precisam ser preenchidas.
+6) Seleciona as opções referentes ao seu S.O e ao que deseja instalar. E durante a instalação fique de olho nas informações que precisam ser preenchidas.
 
 ############################################################################################
 
 Observações:
 
-Na instalação do Zabbix Server e Proxy, será solicitade que crie uma senha do root do banco de dados ou que utilize a senha ja existente.
+Na instalação do Zabbix Server e Proxy, será solicitado que crie uma senha do root do banco de dados ou que utilize uma senha ja existente.
 Caso esteja instalando em uma máquina recém instalada, e não tenha banco de dados instalado ou configurado, selecione a segunda opção: Criar nova senha.
 
 
-Durante a instalação em uma distribuição Rhel (RedHat ou CentOS) será desativado o SElinux para ter um sucesso na instação.
+Durante a instalação em uma distribuição Rhel (RedHat ou CentOS) será desativado o SElinux para ter sucesso na instalação.
 
 Durante a instalação será limpado as regras ativas do iptables. Por isso, salve suas regras filter em um lugar seguro.
 
